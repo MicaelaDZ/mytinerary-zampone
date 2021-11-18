@@ -96,19 +96,26 @@
   border-radius: 35px;
 }
 
+.main{
+  height: 100vh;
+  
+}
 
 .footer{
-  height: 20vh;
+  height: 30vh;
   width: 100%;
   background-color: var(--navBar);
-  position: fixed;
   bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .icon {
   width: 50px;
   height: 50px;
   color: #ffffff;
+  margin: 1rem;
 }
 
 .icon-f {
@@ -123,4 +130,29 @@
 
 .icon-f:hover {
   box-shadow: 0px 0px 30px #50380b94;
+}
+
+.btn{
+  width: 60%;
+  padding: 1rem!important;
+  border-radius: 35px!important;
+}
+
+.btn-warning{
+  font-size: 1.5rem!important;
+  color:black!important;
+  font-weight: bold!important;
+}
+
+.btn-warning:hover{
+  box-shadow: 0px 0px 10px white;
+  color:white!important;
+}
+
+.Popular{
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 1rem;
+
 }

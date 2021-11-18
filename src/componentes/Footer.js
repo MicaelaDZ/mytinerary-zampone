@@ -1,6 +1,7 @@
 import { FaFacebookSquare } from "react-icons/fa";
  import { FaTwitter } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import {Nav} from "react-bootstrap";
 
 export default function Footer(){
 
@@ -18,7 +19,14 @@ export default function Footer(){
               <FaLinkedin className='icon'/>
               </div>
             </div>
-        </div>
+            <div className="d-flex ">
+            <Nav>
+              
+              <Nav.Link href='./Home'><span className='white-link'>HOME</span></Nav.Link>
+              <Nav.Link href='./Cities'><span className='white-link'>CITIES</span></Nav.Link>
+            </Nav>
+            </div>
+          </div>
         </>
     )
 }
