@@ -1,17 +1,19 @@
 import React from 'react';
 import Navigation from '../componentes/Navigation';
 import Hero from '../componentes/Hero';
-import Carousel from '../componentes/Carousel';
+import Slider from '../componentes/Slider';
 import Footer from '../componentes/Footer';
+import '../App.css';
+
 
 
 export default class Home extends React.Component{
 
     render (){
         return(<>
-            <Navigation />
+            <Navigation />           
             <Hero />
-            <Carousel />
+            <Slider />
             <Footer />
             
             </>)

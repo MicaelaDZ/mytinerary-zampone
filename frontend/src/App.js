@@ -1,17 +1,19 @@
-// import Navigation from './componentes/Navigation';
-// import Footer from './componentes/Footer';
 import './App.css';
-import "bootstrap/dist/css/bootstrap.min.css"
-import Home from './pages/Home'
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+import Home from './pages/Home';
+import Cities from './pages/Cities';
 
 
 function App() {
   return (
-    <>
-    <Home />
-    </>
+    <BrowserRouter>
+    <Switch>    
+         <Route exact path="/" component={Home}/>   
+         <Route path="/Cities" component={Cities}/> 
+         <Redirect to="/" ></Redirect>
+        
+    </Switch>
+    </BrowserRouter>
   );
 }
 

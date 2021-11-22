@@ -2,13 +2,16 @@ import { FaFacebookSquare } from "react-icons/fa";
  import { FaTwitter } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import {Nav} from "react-bootstrap";
+import {Link} from 'react-router-dom';
 
 export default function Footer(){
 
     return (
-        <>
+        
           <div className='footer'>
-            <div className=' d-flex justify-content-around align-items-center'>
+            <div className>
+              {/* <h4>Social</h4> */}
+            <div className=' d-flex '>
               <div className='icon-f'>
               <FaFacebookSquare className='icon'/>
               </div>
@@ -19,14 +22,14 @@ export default function Footer(){
               <FaLinkedin className='icon'/>
               </div>
             </div>
-            <div className="d-flex ">
-            <Nav>
-              
-              <Nav.Link href='./Home'><span className='white-link'>HOME</span></Nav.Link>
-              <Nav.Link href='./Cities'><span className='white-link'>CITIES</span></Nav.Link>
+            </div>
+            <div className="">
+              {/* <h4>Explore</h4> */}
+            <Nav>              
+              <Link exact to="/"><span className='white-link'>HOME</span></Link>
+              <Link to="/Cities"><span className='white-link'>CITIES</span></Link>
             </Nav>
             </div>
-          </div>
-        </>
+        </div>   
     )
-}
+}                                                                                  

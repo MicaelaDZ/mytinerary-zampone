@@ -1,5 +1,6 @@
 import { Navbar, Nav, Container } from "react-bootstrap"
 import { BiUserCircle } from "react-icons/bi";
+import {Link} from 'react-router-dom';
 
 
 export default function Navigation() {
@@ -10,15 +11,16 @@ export default function Navigation() {
           <Navbar.Collapse className="justify-content-start" id='responsive-navbar-nav'>
             <Nav>
               
-              <Nav.Link href='./Home'><span className='white-link'>HOME</span></Nav.Link>
-              <Nav.Link href='./Cities'><span className='white-link'>CITIES</span></Nav.Link>
+              <Link exact to="/"><span className='white-link'>HOME</span></Link>
+              <Link to="/Cities"><span className='white-link'>CITIES</span></Link>
             </Nav>
           </Navbar.Collapse>
-              <Nav.Link href='/'><span className='white-link'>Sign In</span></Nav.Link>
-              <Nav.Link href='/'><span className='white-link personita'><BiUserCircle/></span></Nav.Link>
+              <Link to='/'><span className='white-link'>Sign In</span></Link>
+              <Link to='/'><span className='white-link personita'><BiUserCircle/></span></Link>
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         </Container>
       </Navbar>
+      
 
     </>
   )
