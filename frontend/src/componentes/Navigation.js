@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 export default function Navigation() {
   return (
     <>
-      <Navbar collapseOnSelect fixed="top" bg="warning" expand='lg' >
+      <Navbar collapseOnSelect fixed="top" className="Navb" expand='lg' >
         <Container>
           <Navbar.Collapse className="justify-content-start" id='responsive-navbar-nav'>
             <Nav>

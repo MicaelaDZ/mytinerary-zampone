@@ -18,7 +18,7 @@ export default function Hero(){
                         <h4>designed by insiders who knows and love their cities!</h4>
                     </div>
                     <div className="d-flex align-self-center justify-content-center col" >
-                   <Link to="/Cities"><Button  href="./Cities" variant="warning">LET'S GO!</Button></Link>
+                   <Link to="/Cities"><Button variant="warning">LET'S GO!</Button></Link>
                     </div>              
                 </div>  
             </div>

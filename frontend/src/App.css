@@ -2,21 +2,31 @@
   --navBar: #ffc107;
   --marroncito: #50380b94;
 }
+
+.Navb {
+  background-color: rgba(255, 255, 255, 0.746) !important;
+}
+
 .white-link {
   padding: 0.5rem;
   border-radius: 35px;
   font-size: 25px;
   margin-right: 2rem;
-  color: white;
+  color: rgb(0, 0, 0);
 }
+
 .white-link:hover {
   box-shadow: 0px 0px 30px var(--marroncito);
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .personita {
   font-size: 30px;
   margin: 0;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 .fondo {
@@ -39,10 +49,12 @@
   color: rgba(255, 255, 255);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .titulo-centro :hover {
-  box-shadow: 0px 0px 75px var(--navBar);
-  color: var(--navBar);
+  box-shadow: 0px 0px 100px rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
+
 .titulo-centro h1 {
   background-color: rgba(0, 0, 0, 0.514);
   padding: 2rem;
@@ -60,29 +72,8 @@
   height: 100vh;
 }
 
-.icon {
-  width: 50px;
-  height: 50px;
-  color: #ffffff;
-  margin: 1rem;
-}
-
-.icon-f {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  transition: 0.5s;
-}
-
-.icon-f:hover {
-  box-shadow: 0px 0px 20px #50380b94;
-}
-
 .btn {
-  width: 60%;
+  /* width: 60%; */
   padding: 1rem !important;
   border-radius: 35px !important;
 }
@@ -100,46 +91,42 @@
 
 .Popular {
   text-align: center;
-  background-color: black;
-  color: white;
+  background-color: rgba(255, 255, 255, 0.822); 
+  color: rgb(0, 0, 0);
   padding: 1rem;
   margin-bottom: 2rem;
 }
 
 .divCarousel {
-  background-image: linear-gradient(
-    350deg,
-    #5a3465 0,
-    #411d56 25%,
-    #210444 50%,
-    #070034 75%,
-    #000029 100%
-  );
-}
-.card {
-  background-image: radial-gradient(
-    circle at 50% 50%,
-    #ffa98c 0,
-    #ffa192 6.25%,
-    #ff9898 12.5%,
-    #ff8f9d 18.75%,
-    #ff85a4 25%,
-    #ff7baa 31.25%,
-    #ff71b1 37.5%,
-    #f466b8 43.75%,
-    #e45dbf 50%,
-    #d156c7 56.25%,
-    #ba53cf 62.5%,
-    #a053d8 68.75%,
-    #7f56e0 75%,
-    #505ae7 81.25%,
-    #005eed 87.5%,
-    #0063f0 93.75%,
-    #0067f2 100%
-  );
+  background-image: url(../src/assets/descarga.png);
 }
 
-.carousel-control-next, .carousel-control-prev {
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+  padding: 0 !important;
+}
+
+.card-title {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  
+  font-weight: bold !important;
+  text-shadow: 2px 2px black;
+  transition: 0.4s;
+}
+
+.card:hover .card-title {
+  font-size: 30px;
+  transition: 0.4s;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -147,22 +134,106 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 5%!important;
+  width: 5% !important;
   padding: 0;
-  color: #fffdfd!important;
   text-align: center;
   background: 0 0;
   border: 0;
-  opacity: .5;
-  transition: opacity .15s ease;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+  filter: invert(99%) sepia(1%) saturate(286%) hue-rotate(109deg) brightness(118%) contrast(100%)!important;
+}
+.carousel-control-next{
+  right: -5rem!important;
+  /*cambiar tamaño piquitos*/
+ 
+}
+.carousel-control-prev{
+  left: -5rem!important;
+ 
 }
 
 .footer {
   height: 30vh;
   width: 100%;
-  background-color: var(--navBar);
+  background-image: linear-gradient(
+    165deg,
+    #ffffff 0,
+    #ffffff 16.67%,
+    #ffffff 33.33%,
+    #ffffff 50%,
+    #e4efec 66.67%,
+    #cee1d9 83.33%,
+    #bbd4c8 100%
+  );
   bottom: 0;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  color: #000000;
+  margin: 1rem;
+}
+
+.icon-f {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.icon-f:hover {
+  box-shadow: 0px 0px 20px #50380b94;
+}
+
+.linkFooter {
+  padding: 0.5rem;
+  border-radius: 35px;
+  font-size: 25px;
+  margin-right: 2rem;
+  color: black;
+}
+
+.linkFooter:hover {
+  box-shadow: 0px 0px 30px var(--marroncito);
+  color: black;
+}
+
+.redes {
+  display: flex;
+}
+@media (max-width: 360px) {
+  .card {
+    height: 40vh;
+  }
+
+  .redes {
+    display: block;
+  }
+  .linkFooter {
+    font-size: 15px;
+  }
+  .padreLinks {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contacto {
+    font-size: small;
+  }
+
+  .icon-f {
+    width: 50px;
+    height: 50px;
+  }
+  .titulo-medio {
+    display: block !important;
+  }
 }

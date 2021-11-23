@@ -8,10 +8,10 @@ export default function Footer(){
 
     return (
         
-          <div className='footer'>
-            <div className>
-              {/* <h4>Social</h4> */}
-            <div className=' d-flex '>
+      <div className='footer'>
+            <div>
+            
+            <div className='redes'>
               <div className='icon-f'>
               <FaFacebookSquare className='icon'/>
               </div>
@@ -23,12 +23,16 @@ export default function Footer(){
               </div>
             </div>
             </div>
-            <div className="">
-              {/* <h4>Explore</h4> */}
-            <Nav>              
-              <Link exact to="/"><span className='white-link'>HOME</span></Link>
-              <Link to="/Cities"><span className='white-link'>CITIES</span></Link>
+            <div>
+             <Nav className="padreLinks" >             
+              <Link exact to="/"><span className='linkFooter'>HOME</span></Link>
+              <Link to="/Cities"><span className='linkFooter'>CITIES</span></Link>
             </Nav>
+            </div>
+            <div className="contacto">
+              <h5>Contact</h5>
+              <p> MyTineraries@gmail.com</p>
+              <p>+54 11 2456 9871</p>
             </div>
         </div>   
     )
