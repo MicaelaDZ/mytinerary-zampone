@@ -25,7 +25,7 @@ export default function Footer(){
             </div>
             <div>
              <Nav className="padreLinks" >             
-              <Link exact to="/"><span className='linkFooter'>HOME</span></Link>
+              <Link to="/"><span className='linkFooter'>HOME</span></Link>
               <Link to="/Cities"><span className='linkFooter'>CITIES</span></Link>
             </Nav>
             </div>
