@@ -17,7 +17,7 @@ export default function MultipleRows() {
     className: "center",
     centerMode: false,
     infinite: true,
-    centerPadding: "50px",
+    // centerPadding: "50px",
     slidesToShow: 1,
     speed: 500,
     rows: 2,

@@ -20,10 +20,10 @@ function Cards() {
 
   return (<>
   <div className="fondo-cards">
-       <div className="input">
+         <h3>Cities</h3>
+       <div className="inputContenedor">
               <input
-              onChange={(e) => {setSearch(e.target.value.toLowerCase().trimStart().trimEnd())
-              setSearch(e.target.value)}}
+              onChange={(e) => {setSearch(e.target.value.toLowerCase().trim())}}
                 type="text"            
                 placeholder="Filter by city"
                 className="cityFilter">

@@ -8,7 +8,7 @@ function AllCities() {
     <>
       <div
         className="headerCities"
-        style={{ backgroundImage: "url(./assets/descarga.png)" }}
+        
       >
         <div className="titulo-centro">
           <h1>MyTinerary</h1>

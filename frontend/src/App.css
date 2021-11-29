@@ -1,6 +1,7 @@
 :root {
   --navBar: #ffc107;
   --marroncito: #50380b94;
+  --fondoClaro: #f0dca1;
 }
 
 .Navb {
@@ -72,9 +73,13 @@ a {
 .main {
   height: 100vh;
 }
-
+.botonamarillo {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 .btn {
-  /* width: 60%; */
+  /* width: 100%; */
   padding: 1rem !important;
   border-radius: 35px !important;
 }
@@ -91,18 +96,24 @@ a {
 }
 
 .Popular {
+  font-size: 35px;
+  font-weight:lighter;
+  
   text-align: center;
-  background-color: #ffc107d3;
+  background-color: var(--navBar);
   color: rgb(255, 255, 255);
-  padding: 1rem;
-  margin-bottom: 2rem;
+  padding: 3rem;
+  margin-bottom: 6rem;
+  /* margin-bottom: 2rem;*/
+  border-bottom: 1px solid rgba(0, 0, 0, 0.534);
+  box-shadow: 0px 0px 30px black; 
 }
 
 /*slider*/
 .contenedorSlider {
-  
-  height: 100%;
-  background-image: linear-gradient(
+  background-color: #e9dfc3;
+  height: 100vh;
+  /* background-image: linear-gradient(
     185deg,
     #c5f3a6 0,
     #cded99 6.25%,
@@ -121,16 +132,20 @@ a {
     #f83055 87.5%,
     #f61861 93.75%,
     #f30070 100%
-  );
+  ); */
 }
 
-
-.imgSlider{
+.slick-next:before,
+.slick-prev:before {
+  font-size: 20px;
+  line-height: 1;
+  opacity: 0.75;
+  color: black;
+}
+.imgSlider {
   height: 40vh;
   width: 30vw;
-
 }
-
 
 .card-title {
   color: rgb(255, 255, 255);
@@ -140,10 +155,9 @@ a {
   transition: 0.4s;
 }
 
-.txt-description{
-  display:none;
+.txt-description {
+  display: none;
   transition: 0.4s;
-  
 }
 
 .card:hover .card-title {
@@ -152,39 +166,43 @@ a {
   /* background-color: rgba(0, 0, 0, 0.515);
   padding: 1rem;
   border-radius: 25px; */
-
 }
-.cardTitle2{
+.cardTitle2 {
   display: flex;
   justify-content: center;
-   
+  font-size: 40px !important;
 }
-.cardTitle2:hover{
-  
- 
-   background-color: rgba(255, 255, 255, 0.515);
+.cardTitle2:hover {
+  background-color: rgba(255, 255, 255, 0.515);
   padding: 1rem;
-  border-radius: 25px; 
+  border-radius: 25px;
 }
 
-.card:hover .txt-description{
-  display:block;
+.card:hover .txt-description {
+  display: block;
   transition: 0.4s;
   color: white;
   background-color: rgba(0, 0, 0, 0.515);
   padding: 1rem;
   border-radius: 25px;
-  
-  
 }
-
-
 
 /*Footer*/
 .footer {
   height: 30vh;
   width: 100%;
-  background-image: linear-gradient(10deg, #ff6d56 0, #ff5862 12.5%, #ff416a 25%, #ff276f 37.5%, #f3006f 50%, #d3006d 62.5%, #b6006b 75%, #9b006a 87.5%, #840069 100%);
+  background-image: linear-gradient(
+    10deg,
+    #ff6d56 0,
+    #ff5862 12.5%,
+    #ff416a 25%,
+    #ff276f 37.5%,
+    #f3006f 50%,
+    #d3006d 62.5%,
+    #b6006b 75%,
+    #9b006a 87.5%,
+    #840069 100%
+  );
   bottom: 0;
   display: flex;
   align-items: center;
@@ -225,26 +243,26 @@ a {
   color: black;
 }
 
-.contacto{
-  color:white;
+.contacto {
+  color: white;
 }
 .redes {
   display: flex;
 }
 
-
-@media (max-width:800px){
-  .contenedorSlider{
+@media (max-width: 1600px) {
+  .contenedorSlider {
     height: 100%;
+    padding-bottom: 2rem;
   }
-  .tamañoCard{
-    object-fit: cover!important;
+  .tamañoCard {
+    object-fit: cover !important;
     width: 100%;
     height: 25vh;
-   }
+  }
 
-   .cityFilter{
-    width:60%;
+  .cityFilter {
+    width: 60%;
     padding: 0.5rem;
     border-radius: 25px;
     border: 2px var(--navBar) solid;
@@ -252,98 +270,8 @@ a {
     align-content: center;
     font-size: 1rem;
   }
-    .redes {
-      display: block;
-    }
-
-    .linkFooter {
-      font-size: 15px;
-    }
-
-    .padreLinks {
-      display: flex;
-      flex-direction: column;
-    }
-  
-    .contacto {
-      font-size: small;
-    }
-  
-    .icon-f {
-      width: 50px;
-      height: 50px;
-    }
-  
 }
-
-@media (max-width: 425px) {
-   /* .card {
-    width:auto;
-  }  */
-  .card:hover .txt-description{
-    display:none;
-        
-  }
-  .titulo-medio {
-    display: block !important;
-  }
-  .contenedorSlider{
-    height: 100%;
-    
-  }
-  .sincleCard{
-    width: 100%!important;
-  }
-  /* .element.style {
-    width: 100%; 
-} */
-
-.card-img{
-  width: 100%!important;
-  }
-
-  .card {
-    background-color: none!important;
-    background-clip:unset!important;
-    border: none!important;
-  }
-  
-  .a{
-    margin:0!important;
-  }
-
-  .Cards{
-    margin:0!important;
-  }
-
-  .tamañoCard{
-    width: 100%;
-    height: 25vh;
-   }
-
-  .cityFilter{
-    width:60%;
-    padding: 0.5rem;
-    border-radius: 25px;
-    border: 2px var(--navBar) solid;
-    background-color: rgba(255, 255, 255, 0.74);
-    align-content: center;
-    font-size: 1rem;
-  }
-  
- .card-body{
-   height: auto;
- }
-
-.cityFilter{
-  width: 60%!important;
-  padding:0.5rem!important;
-  font-size: 1rem!important;
-  
-}
- .cityTitle{
-   font-size: small!important;
- }
+@media (max-width: 900px) {
   .redes {
     display: block;
   }
@@ -354,48 +282,122 @@ a {
     display: flex;
     flex-direction: column;
   }
-  
+
   .contacto {
     font-size: small;
   }
-  
+
+  .icon-f {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media (max-width: 425px) {
+  .card:hover .txt-description {
+    display: none;
+  }
+
+  .titulo-medio {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.515);
+    padding: 1rem;
+    border-radius: 35px;
+  }
+
+  .findyourperfect h4 {
+    font-size: 1rem;
+  }
+
+  .contenedorSlider {
+    height: 100%;
+  }
+
+  .Cards {
+    margin: 0 !important;
+  }
+
+  .cityFilter {
+    width: 60%;
+    padding: 0.5rem;
+    border-radius: 25px;
+    border: 2px var(--navBar) solid;
+    background-color: rgba(255, 255, 255, 0.74);
+    align-content: center;
+    font-size: 1rem;
+  }
+
+  .cityFilter {
+    width: 60% !important;
+    padding: 0.5rem !important;
+    font-size: 1rem !important;
+  }
+  .cityTitle {
+    font-size: small !important;
+  }
+  .cardTitle2 {
+    font-size: 30px !important;
+  }
+  .redes {
+    display: block;
+  }
+  .linkFooter {
+    font-size: 15px;
+  }
+  .padreLinks {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contacto {
+    font-size: small;
+  }
+
   .icon-f {
     width: 50px;
     height: 50px;
   }
 }
 
-
-
-
 /*Card*/
-.headerCities{
+.headerCities {
+  background-image: url(./assets/backmap.jpg);
   height: 60vh;
-  width:100%;
-  object-fit: cover;
+  width: 100%;  
   z-index: -10;
+  background-size:cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
-.cityFilter{
-  width:50%;
+.inputContenedor {
+  display: flex;
+  justify-content: center;
   padding: 1rem;
-  border-radius: 35px;
+}
+
+input {
+  box-shadow: 0px 0px 30px black;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.cityFilter {
+  font-weight: lighter;
+  width: 50%;
+  padding: 0.5rem;
+  border-radius: 10px;
   border: 2px var(--navBar) solid;
   background-color: rgba(255, 255, 255, 0.74);
-  align-content: center;  
+  align-content: center;
+  text-align: center;
   font-size: 1.3rem;
 }
 
-.input{
-  display: flex;
-  justify-content: center;
-  
-}
-
-.fondo-cards{
-  padding: 1rem;
-  background-image: linear-gradient(
+.fondo-cards {
+    padding: 1rem;
+  background-color: #ffffff;
+  /* background-image: linear-gradient(
     185deg,
     #c5f3a6 0,
     #cded99 6.25%,
@@ -414,34 +416,42 @@ a {
     #f83055 87.5%,
     #f61861 93.75%,
     #f30070 100%
-  ) 
+  )  */
+}
+.fondo-cards h3 {
+  font-weight: lighter;
+  text-align: center;
+  padding: 0.5rem;
+  border-bottom: 3px solid var(--marroncito);
 }
 
-.contenedorCards{
+.contenedorCards {
   align-content: center;
   padding: 2rem;
- 
-  
 }
 
-
-
-.tamañoCard{
-  object-fit: cover ;
+.tamañoCard {
+  object-fit: cover;
   width: 80%;
   height: 35vh;
-  }
+}
 
-.Cards{
-  margin:2rem;
-  
-}  
+.Cards {
+  margin: 2rem;
+  box-shadow: 0px 0px 30px black;
+  transform: scale(0.95);
+  transition: 0.4s;
+}
+.Cards:hover {
+  transform: scale(0.999);
+}
 
 /*paginaCity*/
-.contenedorCard{  
- padding-top:5rem;
- padding-bottom: 5rem;
+.contenedorCard {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   min-height: 100vh;
+  background-color: white;
   background-image: linear-gradient(
     185deg,
     #c5f3a6 0,
@@ -461,18 +471,19 @@ a {
     #f83055 87.5%,
     #f61861 93.75%,
     #f30070 100%
-  ) 
+  );
 }
 
-.singleCard{
-  /*notienewidth*/
+.singleCard {
+  width:50%!important;
   height: 100%;
   display: flex;
   justify-content: center;
- 
-} 
+  border:none!important;
+  padding:0!important;
+}
 
-.cityTitle{
-  font-size: 2rem!important;
+.cityTitle {
+  font-size: 2rem !important;
   color: rgb(61, 126, 104);
 }

@@ -11,14 +11,15 @@ export default function Hero(){
                 <h1>MyTinerary</h1>
             </div>
             <div className="container">
-                <div className="titulo-medio col-12 col-lg-12 col-md-12 col-sm-12">                
-                    <div className=" col ">
+                <div className="titulo-medio d-flex">                
+                    <div className="col-6 findyourperfect">
                         <h1>Find your perfect trip,</h1> 
                         <h4>designed by insiders who knows and love their cities!</h4>
-                    </div>
-                    <div className="d-flex align-self-center justify-content-center col" >
+                    
+                    </div>           
+                    <div className=" col-6 botonamarillo" >
                    <Link to="/Cities"><Button variant="warning">LET'S GO!</Button></Link>
-                    </div>              
+                    </div>   
                 </div>  
             </div>
         </div>
