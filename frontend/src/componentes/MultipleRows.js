@@ -54,7 +54,7 @@ export default function MultipleRows() {
             <Card.Img className="card-img imgSlider" src={city.src} alt={city.name} />
             <Card.ImgOverlay>
               <Card.Title className="txt-dark txt-title">
-                {city.name}
+                {city.name}, {city.country}
               </Card.Title>
               <Card.Text className="txt-dark txt-description txt-center">
                 {city.description}

@@ -11,5 +11,5 @@ app.use("/api", Router)
 
 
 app.listen(4000, ()=>{
-    console.log("eminomepelees")
+    console.log("Inicializando...")
 })

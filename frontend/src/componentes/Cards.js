@@ -41,10 +41,9 @@ function Cards() {
             <Card.Img variant="top" className="tamañoCard" src={city.src} />
             <Card.ImgOverlay>
             <Card.Body>
-              <Card.Title className="cardTitle2">{city.name}</Card.Title>
+              <Card.Title className="cardTitle2">{city.name}, {city.country}</Card.Title>
              
-              {/* <Button variant="primary">Go somewhere</Button> */}
-            </Card.Body>
+              </Card.Body>
             </Card.ImgOverlay>
           </Card>
           </Link>

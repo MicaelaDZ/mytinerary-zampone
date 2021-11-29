@@ -47,7 +47,7 @@ const citiesController = {
       let city = req.body
       let actualizado
       try{
-        actualizado = await City.findOneAndUpdate({_id:id}, producto, {new:true})
+        actualizado = await City.findOneAndUpdate({_id:id}, city, {new:true})
       }catch(error){
         console.log(error)
       }

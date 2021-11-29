@@ -26,7 +26,7 @@ function City() {
         <Card.Img className="imgSingle" variant="top"  src={city.src} />
         <Card.Body>
          
-          <Card.Title className="cityTitle">{city.name}</Card.Title>
+          <Card.Title className="cityTitle">{city.name}, {city.country}</Card.Title>
           <Card.Text>
            <h2>Under Construction...</h2>
           </Card.Text>
