@@ -1,6 +1,4 @@
-import { FaFacebookSquare } from "react-icons/fa";
- import { FaTwitter } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import { FaTwitter, FaLinkedin, FaFacebookSquare} from "react-icons/fa";
 import {Nav} from "react-bootstrap";
 import {Link} from 'react-router-dom';
 

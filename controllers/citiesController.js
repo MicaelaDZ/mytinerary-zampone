@@ -13,7 +13,7 @@
 //   { name: "Australia", src: "../assets/australia.jpg", description:"", id: 12 },
 // ];
 
-const City = require('../models/City')
+const City = require('../models/City')//asi importa el controlador
 
 const citiesController = {
   returnCities: (req, res) => {
@@ -30,7 +30,7 @@ const citiesController = {
       const {name, src, description} = req.body
       const city = new City({name,src,description}).save()
       .then((response) => res.json((response)))
-      console.log(city)
+      
       
     },
     deleteCity: async (req,res) =>{
