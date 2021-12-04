@@ -1,17 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Slider from "react-slick";
-import {Card, Container} from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
+import { connect } from "react-redux";
+import citiesAction from "../redux/actions/citiesAction";
 
-export default function MultipleRows() {
 
-  const [cities, setCities] = useState([]);
-
+function MultipleRows(props) {
+  console.log(props);
+  
   useEffect(() => {
-    fetch("http://localhost:4000/api/cities")
-      .then((res) => res.json())
-      .then((data) => setCities(data.response))
-      .catch((err) => err.message)
+    props.getCities();
   }, []);
+  // const [cities, setCities] = useState([]);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:4000/api/cities")
+  //     .then((res) => res.json())
+  //     .then((data) => setCities(data.response))
+  //     .catch((err) => err.message)
+  // }, []);
 
   const settings = {
     className: "center",
@@ -39,33 +46,48 @@ export default function MultipleRows() {
         },
       },
     ],
-  }
+  };
 
   return (
     <div className="contenedorSlider">
       <h1 className="Popular">Popular MyTineraries</h1>
       <Container>
-
-            <Slider {...settings}>
-        {cities.map((city, index) =>{
-          return(
-
-          <Card key={index} border="dark" className="text-white card2">
-            <Card.Img className="card-img imgSlider" src={city.src} alt={city.name} />
-            <Card.ImgOverlay>
-              <Card.Title className="txt-dark txt-title">
-                {city.name}, {city.country}
-              </Card.Title>
-              <Card.Text className="txt-dark txt-description txt-center">
-                {city.description}
-              </Card.Text>
-            </Card.ImgOverlay>
-          </Card>)
-        })}
-          
-        
-      </Slider>
-      </Container >
+        <Slider {...settings}>
+          {
+          props.cities.length > 0 && props.cities.map((city, index) => {
+            if (index < 12) {
+              return (
+                <Card key={index} border="dark" className="text-white card2">
+                  <Card.Img
+                    className="card-img imgSlider"
+                    src={city.src}
+                    alt={city.name}
+                  />
+                  <Card.ImgOverlay>
+                    <Card.Title className="txt-dark txt-title">
+                      {city.name}, {city.country}
+                    </Card.Title>
+                    <Card.Text className="txt-dark txt-description txt-center">
+                      {city.description}
+                    </Card.Text>
+                  </Card.ImgOverlay>
+                </Card>
+              );
+            }
+          })}
+        </Slider>
+      </Container>
     </div>
   );
 }
+
+const mapDispatchToProps = ({ 
+    getCities: citiesAction.getCities,
+})
+
+const mapStateToProps = (state) => {
+  return {
+    cities: state.citiesReducer.cities,
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(MultipleRows)

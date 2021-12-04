@@ -16,7 +16,7 @@ export default function Navigation() {
             </Nav>
           </Navbar.Collapse>
               <Link to='/'><span className='white-link'>Sign In</span></Link>
-              <Link to='/'><span className='white-link personita'><BiUserCircle/></span></Link>
+              <Link to='/'><span className='personita'><BiUserCircle/></span></Link>
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         </Container>
       </Navbar>

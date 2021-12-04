@@ -5,7 +5,7 @@ const cors = require("cors")
 const app = express()
 require('./config/database')
 app.use(cors())
-app.use(express.json())
+app.use(express.json()) //para que la app use express.
 app.use("/api", Router)
 
 
