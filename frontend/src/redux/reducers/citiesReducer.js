@@ -5,7 +5,7 @@ const initialState = {
     cities: [],
     auxiliar: [],
     city: [],
-    itineraryFiltered: [],
+    itineraries: [],
     
   }
   
@@ -33,7 +33,7 @@ const initialState = {
           case 'GET_ITINERARY_BY_CITY_ID':
                 return{
                   ...state,
-                  itineraryFiltered: action.payload
+                  itineraries: action.payload
                 }
       
       default:
