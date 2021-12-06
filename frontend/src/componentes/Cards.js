@@ -7,32 +7,13 @@ import {connect} from 'react-redux';
 function Cards(props) {
   !props.cities[0] && props.getCities()
 
-
-//si esto no existe
-  
-  // useEffect(() => {
-  //   fetch("http://localhost:4000/api/cities")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setLoading(true)
-  //       setCities(data.response);
-  //     })
-  //     .catch((err) => err.message);
-  // }, []);
-
-  // const filter = cities.filter(
-  //   (city) =>
-  //     city.name.toLowerCase().startsWith(search) ||
-  //     city.country.toLowerCase().startsWith(search)
-  // );
-
   return (
     <>
       <div className="fondo-cards">
         <div className="inputContenedor">
           <input
             onChange={(e) => {
-              props.filtrar(props.cities, e.target.value.toLowerCase().trim());
+              props.filter(props.cities, e.target.value.toLowerCase().trim());
             }}
             type="text"
             placeholder="Filter by city"
@@ -42,8 +23,8 @@ function Cards(props) {
         <div className="contenedorCards">
           
           <div className="d-flex flex-column justify-content-center">
-                       
-          {props.auxiliar.length > 0 ? (
+           {props.cities.length > 0 ? (        
+          props.auxiliar.length > 0 ? (
             props.auxiliar.map((city, index) => {
               return (
                 <Link to={`/city/${city._id}`}>
@@ -67,7 +48,7 @@ function Cards(props) {
             })
           ) : (
             <h1>No matching results</h1>
-          )}
+          )) : <Spinner className="spinner" animation="border" variant="warning" />}
         </div>
       </div>
       </div>

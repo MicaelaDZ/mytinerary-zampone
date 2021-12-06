@@ -5,6 +5,7 @@ import itinerariesAction from '../redux/actions/itinerariesAction'
 import {useParams} from "react-router-dom"
 import Itinerary from "./Itinerary"
 import {Link} from "react-router-dom"
+import { Spinner } from "react-bootstrap";
 
 function Ciudad(props) {
   const params = useParams()
@@ -16,7 +17,7 @@ function Ciudad(props) {
     props.getItinerariesByCityId(params.id)
   }, [props.cities]) //c/vez q se atualiza props.cities: se ejecuta useEff
   console.log(props)
-  
+
   const back = {
     backgroundImage: "url(" + props.city.src + ")",
     width: "100%",
@@ -33,11 +34,13 @@ function Ciudad(props) {
       <div className="back" style={back}></div>
       <h1 className="d-flex justify-content-center">{props.city.name}</h1>
       <p className="description container">{props.city.description}</p>
-      {props.itineraries[0] ? (
+      {
+      props.cities[0] ? (
+        props.itineraries[0] ? (
         <Itinerary itineraries={props.itineraries} />
         ) : (
           <h1>There are not itineraries for this city yet...</h1>
-          )}
+          )): <Spinner className="spinner" animation="border" variant="warning" />}
           <Link className="btn btn-warning m-2"to="/cities">Back to Cities</Link>
     </div>
     </>
