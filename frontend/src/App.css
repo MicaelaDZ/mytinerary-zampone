@@ -299,11 +299,28 @@ background-color: rgba(255, 255, 255, 0.515);
     width: 50px;
     height: 50px;
   }
+
+  .div{
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .hashtag{
+    display: flex;
+    flex-direction: column;
+   }
+
+  .tag{
+    margin:0!important;
+  }
 }
 @media (max-width: 425px) {
   .card:hover .txt-description {
     display: none;
   }
+
+  
 
   .titulo-medio {
     color: white;
@@ -510,8 +527,8 @@ input {
   align-self: center; 
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  margin:0.5rem;
+  padding:1rem;
+  margin:1rem;
   background-color: white;
   width: 60vw;
   line-height-step: 40vh;
@@ -519,17 +536,21 @@ input {
   border-radius: 25px;
   box-shadow: 0px 0px 30px black;
 }
+
 .itinerarioCard h2{  
   border-bottom: 1px solid black;
 }
-/* .singleCard {
-  width:50%!important;
-  height: 100%;
+
+.singleCard {
+width: 150px;
+height: 150px;
+object-fit: cover;
   display: flex;
+  border-radius: 50%;
   justify-content: center;
-  border:none!important;
-  padding:0!important;
-} */
+  border: var(--navBar) solid 3px;
+ 
+} 
 
 
 .spinner{
@@ -539,4 +560,60 @@ input {
   align-items:center;
   width: 50px;
   height: 50px;
+}
+
+.fondo-itinerario{
+  background-image: linear-gradient(
+    185deg,
+    #e0d371 0,
+    #e0d371 6.25%,
+    #e0d371 12.5%,
+    #e0d371 18.75%,
+    #e0d371 25%,
+    #e5c864 31.25%,
+    #e9bb57 37.5%,
+    #edad4b 43.75%,
+    #ef9d41 50%,
+    #f18c3a 56.25%,
+    #f37b38 62.5%,
+    #f56a3b 68.75%,
+    #f61861 75%,
+    #f61861 81.25%,
+    #f61861 87.5%,
+    #f61861 93.75%,
+    #f30070 100%
+  )
+}
+
+.description{
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.479);
+  color:rgb(0, 0, 0);
+  /* text-shadow:  0.5px 0.5px rgb(255, 255, 255); */
+  font-size: 1rem;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 5px;
+
+}
+
+.back{
+  z-index: -1;
+}
+
+.div{
+  display:flex;
+}
+.minidiv{
+  margin:0.5rem;
+  display:flex;
+  justify-content: space-evenly!important;
+}
+
+.tag{
+  margin:0.5rem;
+}
+
+.hashtag{
+  display:flex;
+  justify-content:space-evenly;
 }
