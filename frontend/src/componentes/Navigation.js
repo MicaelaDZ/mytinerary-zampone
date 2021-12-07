@@ -11,11 +11,12 @@ export default function Navigation() {
           <Navbar.Collapse className="justify-content-start" id='responsive-navbar-nav'>
             <Nav>
               
-              <Link to="/"><span className='white-link'>HOME</span></Link>
-              <Link to="/Cities"><span className='white-link'>CITIES</span></Link>
+              <Link to="/"><span className='white-link'>Home</span></Link>
+              <Link to="/Cities"><span className='white-link'>Cities</span></Link>
+              <Link to='/'><span className='white-link'>Sign Up</span></Link>
+              <Link to='/'><span className='white-link'>Sign In</span></Link>
             </Nav>
           </Navbar.Collapse>
-              <Link to='/'><span className='white-link'>Sign In</span></Link>
               <Link to='/'><span className='personita'><BiUserCircle/></span></Link>
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         </Container>

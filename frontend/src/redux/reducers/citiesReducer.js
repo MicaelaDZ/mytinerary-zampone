@@ -1,12 +1,9 @@
 //reducer modifica los estados llamando a una action "type"
-
 const initialState = {
     state: [],
     cities: [],
     auxiliar: [],
-    city: [],
-    
-    
+    city: [],   
   }
   
   const citiesReducer = (state = initialState, action) => {
@@ -15,7 +12,7 @@ const initialState = {
         return {
           ...state,
           cities: action.payload, //a citis le ejcuta una accion
-          auxiliar: action.payload,
+          auxiliar: action.payload, //input usa este array para filtrar
          
         }
         case 'FILTER':

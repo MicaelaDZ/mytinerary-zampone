@@ -27,8 +27,8 @@ function Cards(props) {
           props.auxiliar.length > 0 ? (
             props.auxiliar.map((city, index) => {
               return (
-                <Link to={`/city/${city._id}`}>
-                  <Card className="Cards" key={index}>
+                <Link key={index} to={`/city/${city._id}`}>
+                  <Card className="Cards" >
                     <Card.Img
                       variant="top"
                       className="tamañoCard"

@@ -1,3 +1,4 @@
+
 import {useEffect} from "react"
 import {connect} from "react-redux"
 import citiesAction from "../redux/actions/citiesAction"
@@ -22,10 +23,10 @@ function Ciudad(props) {
     backgroundImage: "url(" + props.city.src + ")",
     width: "100%",
     height: "70vh",
-    "background-repeat": "no-repeat",
-    "background-position": "center",
-    "background-size": "cover",
-    "z-index": "-1",
+    "backgroundRepeat": "no-repeat",
+    "backgroundPosition": "center",
+    "backgroundSize": "cover",
+    "zIndex": "-1",
   }
 
   return (
@@ -36,9 +37,8 @@ function Ciudad(props) {
       <p className="description container">{props.city.description}</p>
       {
       props.cities[0] ? (
-        props.itineraries[0] ? (
-        <Itinerary itineraries={props.itineraries} />
-        ) : (
+        props.itineraries.length > 0 
+        ? (props.itineraries.map(itinerary=><Itinerary key={itinerary._id}itinerary={itinerary} />)) : (
           <h1>There are not itineraries for this city yet...</h1>
           )): <Spinner className="spinner" animation="border" variant="warning" />}
           <Link className="btn btn-warning m-2"to="/cities">Back to Cities</Link>

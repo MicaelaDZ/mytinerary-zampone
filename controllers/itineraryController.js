@@ -3,7 +3,7 @@ const Itinerary = require("../models/Itinerary") //asi importa el controlador
 const itineraryController = {
   returnItineraries: (req, res) => {
     Itinerary.find()
-      .populate("city")
+      .populate("city") //permite hacer refrencias a documentos en otras colecciones
       .then((response) => res.json({response}))
   },
   returnItinerary: (req, res) => {
@@ -32,18 +32,8 @@ const itineraryController = {
       comments,
       city,
     } = req.body
-    const itinerary = new Itinerary({
-      itineraryName,
-      userName,
-      userImg,
-      price,
-      likes,
-      duration,
-      hashtags,
-      comments,
-      city,
-    })
-      .save()
+    const itinerary = new Itinerary({...req.body})
+      .save() //guarda la info en mongoDB
       .then((response) => res.json({response: {itinerary}}))
       .catch((err) => console.log(err))
   },

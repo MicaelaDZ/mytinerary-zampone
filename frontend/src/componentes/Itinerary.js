@@ -1,10 +1,11 @@
-import {Button, Collapse} from "react-bootstrap"
 import {useState} from "react"
 
-export default function Itinerary(props) {
-  const [open, setOpen] = useState(false)
+export default function Itinerary({itinerary}) {
+  
 
-   console.log(props)
+  const [display, setDisplay] = useState(false)
+  const handleClick = () => setDisplay(!display)
+
 
   function precio(price) {
     return Array.from({length: price})
@@ -12,12 +13,11 @@ export default function Itinerary(props) {
 
   return (
     <>
-      {props.itineraries.length > 0 &&
-        props.itineraries.map((itinerary, index) => (
-          <div className="d-flex justify-content-center">
-          <div key={index} className="itinerarioCard">
+      
+          <div key={itinerary._id} className="d-flex justify-content-center">
+          <div className="itinerarioCard">
             <h2>{itinerary.itineraryName}</h2>
-            <img className="singleCard" variant="top" src={itinerary.userImg} />
+            <img className="singleCard" variant="top" src={itinerary.userImg} key={itinerary._id} alt="." />
             <h4>{itinerary.userName}</h4>
             
             <div className="div">
@@ -29,34 +29,29 @@ export default function Itinerary(props) {
                 </div>
                 <div className="minidiv">
                   {precio(itinerary.price).map(() => (
-                    <div>💵</div>
+                    <div key={itinerary.price}>💵</div>
                   ))}
                 </div>
               </div>
               <div className="hashtag">
               {itinerary.hashtags.map((hash) => (
-                <div className="tag"> #{hash}</div>
+                <div key={hash._id}className="tag"> #{hash}</div>
                 ))}
             </div>
            
             <div className="">
-              <Button
-                className="btn-warning p-1 fs-6 fw-normal m-1"
-                onClick={() => setOpen(!open)}
-                aria-controls="example-fade-text"
-                aria-expanded={open}>
-                {!open ? "View more" : "View less"}
-              </Button>
-              <Collapse in={open}>
-                <div id="example-collapse-text">
-                 Under construction...
-                </div>
-              </Collapse>
+              {display && (
+                <h4>Under Construction...</h4>
+              )}
+             <button onClick={handleClick}>
+              {" "}
+              {display ? "View less" : "View more"}
+             </button>
              
             </div>
           </div>
           </div>
-        ))}
+        
     </>
   )
 }

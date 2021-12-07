@@ -11,20 +11,11 @@ function MultipleRows(props) {
   useEffect(() => {
     props.getCities();
   }, []);
-  // const [cities, setCities] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("http://localhost:4000/api/cities")
-  //     .then((res) => res.json())
-  //     .then((data) => setCities(data.response))
-  //     .catch((err) => err.message)
-  // }, []);
-
+  
   const settings = {
     className: "center",
     centerMode: false,
     infinite: true,
-    // centerPadding: "50px",
     slidesToShow: 1,
     speed: 500,
     rows: 2,

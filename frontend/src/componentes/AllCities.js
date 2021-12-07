@@ -1,8 +1,4 @@
-
-
 function AllCities() {
-
- 
 
   return (
     <>
