@@ -411,7 +411,7 @@ background-color: rgba(255, 255, 255, 0.515);
   z-index: -10;
   background-size:cover;
   background-position: center;
-  
+  background-repeat:no-repeat;
 }
 
 .inputContenedor {
@@ -616,4 +616,64 @@ object-fit: cover;
 .hashtag{
   display:flex;
   justify-content:space-evenly;
+}
+
+/*register*/
+.formulario{
+  background-image: url(./assets/FondoSignUp.jpg);
+  object-fit: cover;
+  padding-top:6rem;
+ 
+  background-color: #ffc595;
+  display: flex;
+  justify-content: center;
+
+  
+}
+
+.form{ 
+  color:white;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  font-size: normal;
+  box-shadow: 0px 0px 50px -24px rgba(0,0,0,1) inset;
+  padding: 2rem;
+  margin-bottom:1rem;
+  backdrop-filter: blur(5px)
+
+ }
+
+label{
+  margin:0.3rem;
+}
+
+input, select{
+  width: 30vw;
+  border-radius: 10px;
+  border: none;
+  display: flex;  
+}
+
+.btn-form{
+  margin-top:1rem!important;
+  align-self: center;  
+  
+}
+
+legend{
+  font-weight: bolder;
+  text-align:center;
+}
+
+.already{
+  margin-top: 1rem;
+  display:flex;
+  justify-content:space-between;
+}
+.google{
+  display:flex;
+  flex-direction: column;
+  align-self:center;
+  align-items: center;
 }

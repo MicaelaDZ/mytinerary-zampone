@@ -1,4 +1,3 @@
-
 import {useEffect} from "react"
 import {connect} from "react-redux"
 import citiesAction from "../redux/actions/citiesAction"
@@ -8,7 +7,7 @@ import Itinerary from "./Itinerary"
 import {Link} from "react-router-dom"
 import { Spinner } from "react-bootstrap";
 
-function Ciudad(props) {
+function CardsItineraries(props) {
   const params = useParams()
 
   useEffect(() => {
@@ -62,4 +61,4 @@ const mapStateToProps = (state) => {
     itineraries: state.itinerariesReducer.itineraries,
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Ciudad)
+export default connect(mapStateToProps, mapDispatchToProps)(CardsItineraries)

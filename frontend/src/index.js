@@ -11,7 +11,7 @@ import mainReducer from './redux/reducers/mainReducer';
 const myStore = createStore(mainReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
-  <Provider store={myStore}>    //conecta la app con el store
+  <Provider store={myStore}>    
       <App />
   </Provider>,
     document.getElementById('root')

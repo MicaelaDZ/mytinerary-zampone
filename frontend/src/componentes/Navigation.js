@@ -12,9 +12,9 @@ export default function Navigation() {
             <Nav>
               
               <Link to="/"><span className='white-link'>Home</span></Link>
-              <Link to="/Cities"><span className='white-link'>Cities</span></Link>
-              <Link to='/'><span className='white-link'>Sign Up</span></Link>
-              <Link to='/'><span className='white-link'>Sign In</span></Link>
+              <Link to="/cities"><span className='white-link'>Cities</span></Link>
+              <Link to='/signup'><span className='white-link'>Sign Up</span></Link>
+              <Link to='/signin'><span className='white-link'>Sign In</span></Link>
             </Nav>
           </Navbar.Collapse>
               <Link to='/'><span className='personita'><BiUserCircle/></span></Link>

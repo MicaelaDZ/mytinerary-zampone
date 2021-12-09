@@ -1,8 +1,10 @@
 const citiesController = require("../controllers/citiesController")
 const itineraryController = require("../controllers/itineraryController")
+const authController = require("../controllers/authController")
+const validator = require("../config/validator")
 
 const Router = require("express").Router()
-
+//conectado con controladores
 Router.route('/cities')
 .get(citiesController.returnCities)
 .post(citiesController.createCity)
@@ -25,5 +27,14 @@ Router.route('/itinerary/:id')
 
 Router.route("/itineraries/:city")
 .get(itineraryController.returnItinerariesByCity)
+
+Router.route("/auth/signup")
+.get(authController.readUsers)
+.post(validator, authController.signUpUser)
+
+
+Router.route("/auth/signin")
+.post(validator, authController.signInUser)
+
 
 module.exports = Router

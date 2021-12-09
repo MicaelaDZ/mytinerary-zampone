@@ -1,14 +1,14 @@
 
 import Navigation from "../componentes/Navigation";
 import Footer from "../componentes/Footer";
-import Ciudad from "../componentes/Ciudad"
+import CardsItineraries from "../componentes/CardsItineraries";
 
 function City() {
   
   return (
     <>
       <Navigation />
-      <Ciudad/>
+      <CardsItineraries/>
       <Footer />
     </>
   );

@@ -2,12 +2,12 @@ import {useState} from "react"
 
 export default function Itinerary({itinerary}) {
   
-
+//como funciona este boton?
   const [display, setDisplay] = useState(false)
   const handleClick = () => setDisplay(!display)
 
 
-  function precio(price) {
+  function price(price) {
     return Array.from({length: price})
   }
 
@@ -28,7 +28,7 @@ export default function Itinerary({itinerary}) {
                     <div>Duration: {itinerary.duration}Hs</div>
                 </div>
                 <div className="minidiv">
-                  {precio(itinerary.price).map(() => (
+                  {price(itinerary.price).map(() => (
                     <div key={itinerary.price}>💵</div>
                   ))}
                 </div>
