@@ -8,20 +8,20 @@ function SignInComponent(props){
   const responseGoogle = (response) => {
     console.log(response);
   }
+  !props.token && props.signInToken()
   const email = useRef()
   const password = useRef()
   
   function handleSignIn(e) {
     e.preventDefault()
-
+   
     props.signIn(email.current.value, password.current.value)
 
     email.current.value = ""
     password.current.value = ""
       
   }
-  console.log(props)
-  
+ 
     return(
         <>
         <div className="contenedorsignin">
@@ -59,12 +59,14 @@ function SignInComponent(props){
 
 const mapStateToProps= (state)=>{  
   return  {
-    newUser: state.authReducer.newUser    
+    user: state.authReducer.user ,  
+    token: state.authReducer.token 
   }
 }
 
 const mapDispatchToProps= {
-    signIn: authAction.signIn
+    signIn: authAction.signIn,
+    signInToken: authAction.signInToken //chequea si hay token o no y lo traduce
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignInComponent)

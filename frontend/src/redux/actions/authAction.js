@@ -2,10 +2,19 @@ const axios = require("axios")
 
 const authAction = {
 
-    signupUser: (newUser) => {
+    signupUser: (name,lastName,email,password,photo,country,google ) => {
         return async (dispatch, getState) =>{
             try {
-                const user = await axios.post("http://localhost:4000/api/auth/signup", {...newUser})
+                const user = await axios.post("http://localhost:4000/api/auth/signup",  {
+                    name,
+                    lastName,
+                    email,
+                    password,
+                    photo,
+                    country,
+                    google:false,
+                  })
+                
                 if(user.data.success && !user.data.error){
                    
                 localStorage.setItem("token", user.data.response.token)
@@ -27,7 +36,7 @@ const authAction = {
                 console.log(user)
                 if(user.data.success && !user.data.error){
                     localStorage.setItem("token", user.data.response.token)
-                    dispatch({type:"NEW_USER", payload: user})
+                    dispatch({type:"USER", payload: user})
                 }else{
                     alert("User or password are not correct")
                 }
@@ -36,47 +45,29 @@ const authAction = {
             }
         }
     },
-    signInToken:(userToken)=>{
+    signInToken:()=>{
         return async(dispatch, getState)=>{
             try{
-            const user = await axios.get("http://localhost:4000/api/auth/signInToken",{
+                const token = localStorage.getItem("token")
+                const user = await axios.get("http://localhost:4000/api/auth/tokensign",{
                 headers:{
-                'Authorization':'Bearer '+ userToken
-            }
+                    Authorization: `Bearer ${token}`}
             })
-            if (user.data.success) {
-                dispatch({type:"SIGN_IN", payload:{...user.data, token:userToken}})
-            }else{
-                return(user.data)
-            }
-        }catch (errores){
-            dispatch({type:"SIGN_OUT",payload:{user:null}})
-            return("noUser")
+            dispatch({type:"TOKEN", payload: user.data})
+           
+        }catch (error){
+           console.log(error)
         }
         }
     },
     
     signOut: () => {
+        localStorage.removeItem("token")
         return (dispatch, getState)=>{
-            dispatch({type: "SIGN_OUT",payload:{user:null}})
+            dispatch({type: "SIGN_OUT",payload: null})
         }
     }
-    // fetchCountries: () =>{
-    //     return async()=>{
-    //         let response
-    //         let error
-    //         try{
-    //             response = await axios.get("https://restcountries.com/v2/all?fields=name")
-    //         }catch(error){
-    //              response = [{name:"We could not find any country", index:0 }]
-    //         }
-    //             return({
-    //                 success: !errores ? true:false,
-    //                 response: !errores ? response.data : response,
-    //                 error
-    //             })
-    //         }
-    //     },
+    
     }
 
 

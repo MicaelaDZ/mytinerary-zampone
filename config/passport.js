@@ -7,9 +7,10 @@ module.exports = passport.use(new jwtStrategy({
     jwtFromRequest: extractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey: process.env.SECRET_KEY
 }, (jwt_payload, done) => {
-
+    console.log("mmmmmmmmmmmmmm")
     User.findOne({_id:jwt_payload._doc._id})
     .then(user => {
+       
         if(user){
             return done(null, user)
         }else{
