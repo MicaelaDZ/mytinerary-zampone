@@ -40,7 +40,7 @@ function CardsItineraries(props) {
         ? (props.itineraries.map(itinerary=><Itinerary key={itinerary._id}itinerary={itinerary} />)) : (
           <h1>There are not itineraries for this city yet...</h1>
           )): <Spinner className="spinner" animation="border" variant="warning" />}
-          <Link className="btn btn-warning m-2"to="/cities">Back to Cities</Link>
+          <Link className="botones m-4"to="/cities">Back to Cities</Link>
     </div>
     </>
   )

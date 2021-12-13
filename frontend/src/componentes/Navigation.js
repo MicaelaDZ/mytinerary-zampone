@@ -1,9 +1,10 @@
 import { Navbar, Nav, Container } from "react-bootstrap"
 import { BiUserCircle } from "react-icons/bi";
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux'
 
-
-export default function Navigation() {
+function Navigation(props) {
+  console.log(props)
   return (
     <>
       <Navbar collapseOnSelect fixed="top" className="Navb col-12 col-lg-12 col-md-12 col-sm-12" expand='md' >
@@ -16,6 +17,7 @@ export default function Navigation() {
               <Link to='/signup'><span className='white-link'>Sign Up</span></Link>
               <Link to='/signin'><span className='white-link'>Sign In</span></Link>
             </Nav>
+        {props.newUser !== "" ? <h5>Welcome, {props.name}</h5> : <h5>You are not registered</h5> }
           </Navbar.Collapse>
               <Link to='/'><span className='personita'><BiUserCircle/></span></Link>
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
@@ -26,3 +28,14 @@ export default function Navigation() {
     </>
   )
 }
+
+const mapStateToProps = (state) => { 
+  return {
+    newUser: state.authReducer.newUser
+  }
+}
+
+const mapDispatchToProps = {
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation)

@@ -6,7 +6,7 @@ import citiesAction from "../redux/actions/citiesAction";
 
 
 function MultipleRows(props) {
-  console.log(props);
+  
   
   useEffect(() => {
     props.getCities();

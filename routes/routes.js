@@ -2,9 +2,12 @@ const citiesController = require("../controllers/citiesController")
 const itineraryController = require("../controllers/itineraryController")
 const authController = require("../controllers/authController")
 const validator = require("../config/validator")
+const passport = require('../config/passport')
 
 const Router = require("express").Router()
 //conectado con controladores
+
+
 Router.route('/cities')
 .get(citiesController.returnCities)
 .post(citiesController.createCity)
@@ -34,7 +37,10 @@ Router.route("/auth/signup")
 
 
 Router.route("/auth/signin")
-.post(validator, authController.signInUser)
+.post(passport.authenticate('jwt',{ session:false}), authController.signInUser) 
+
+Router.route("/auth/")
+//chequea el token y si esta todo bien pasa a la accion: loguearse.
 
 
 module.exports = Router
