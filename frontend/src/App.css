@@ -43,19 +43,16 @@
   align-items: center;
 }
 
-/* .white-link:hover {
-  box-shadow: 0px 0px 30px var(--marroncito);
-  color: rgb(167, 110, 6);
-} */
+.white-link:hover {
+    color: rgb(167, 110, 6);
+}
+
 .personita:hover{
   color: rgb(167, 110, 6)!important;
   border-radius:unset!important;
  
 
 }
-
-
-
 
 a {
   text-decoration: none !important;
@@ -701,8 +698,7 @@ object-fit: cover;
   margin-top:1rem;
   border-radius: 10px;
   background-color:var(--fondoClaro) ;
-  color:rgb(0, 0, 0);
-  
+  color:rgb(0, 0, 0);  
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   display:flex;
   justify-content:center;

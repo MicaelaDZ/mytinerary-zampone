@@ -1,9 +1,9 @@
-const Itinerary = require("../models/Itinerary") //asi importa el controlador
+const Itinerary = require("../models/Itinerary")
 
 const itineraryController = {
   returnItineraries: (req, res) => {
     Itinerary.find()
-      .populate("city") //permite hacer refrencias a documentos en otras colecciones
+      .populate("city") 
       .then((response) => res.json({response}))
   },
   returnItinerary: (req, res) => {
@@ -13,7 +13,7 @@ const itineraryController = {
     })
   },
   returnItinerariesByCity: (req, res) => {
-    Itinerary.find({city: {_id: req.params.city}}) //filter en mongoose es find
+    Itinerary.find({city: {_id: req.params.city}}) 
       .populate("city")
       .then((response) => {
         res.json({response})

@@ -5,8 +5,6 @@ const validator = require("../config/validator")
 const passport = require('../config/passport')
 
 const Router = require("express").Router()
-//conectado con controladores
-
 
 Router.route('/cities')
 .get(citiesController.returnCities)
@@ -41,7 +39,5 @@ Router.route("/auth/signin")
 
 Router.route("/auth")
 .get(passport.authenticate("jwt", {session: false}), authController.token)
-//chequea el token y si esta todo bien pasa a la accion: loguearse.
-
 
 module.exports = Router

@@ -6,9 +6,9 @@ const cors = require("cors")
 const app = express()
 require('./config/database')
 
-//MIDDLEWARES
+
 app.use(cors())
-app.use(express.json()) //para que la app use express.
+app.use(express.json()) 
 app.use(passport.initialize())
 app.use("/api", Router)
 

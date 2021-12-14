@@ -1,4 +1,4 @@
-const joi = require("joi")//libreria  para validaciones.
+const joi = require("joi")
 
 const validator = (req, res, next) => {
     const schema = joi.object({
@@ -31,7 +31,7 @@ const validator = (req, res, next) => {
              
     })
     
-    const validation = schema.validate(req.body, {abortEarly:false}) //true me devuelve el primer error q encuentra y no valida el resto, false devuelvearray de errores
+    const validation = schema.validate(req.body, {abortEarly:false}) 
    
     if(validation.error){
         res.json({success:false, response: validation.error.details})

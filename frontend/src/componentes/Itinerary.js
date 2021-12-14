@@ -2,7 +2,6 @@ import {useState} from "react"
 
 export default function Itinerary({itinerary}) {
   
-//como funciona este boton?
   const [display, setDisplay] = useState(false)
   const handleClick = () => setDisplay(!display)
 

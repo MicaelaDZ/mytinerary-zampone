@@ -26,7 +26,6 @@ function SignupComponent(props){
    
   }
 
-  
   const email = useRef()
   const password = useRef()
   const name = useRef()
@@ -55,11 +54,7 @@ function SignupComponent(props){
     country.current.value = ""
   
   }
-  
-    
-
-  
-  
+   
     return(
         <>
         <div className="contenedorsignup">

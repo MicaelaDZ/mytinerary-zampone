@@ -1,5 +1,5 @@
 const User = require("../models/User")
-const bcryptjs =require("bcryptjs") //encripta y desencripta
+const bcryptjs =require("bcryptjs")
 const jwt = require('jsonwebtoken');
 
 const authController = {
@@ -7,11 +7,11 @@ const authController = {
         const {name, lastName, email,password,photo,country,google} = req.body
                  
         try{
-          const userExists = await User.findOne({email}) //user del nombre del modelo
+          const userExists = await User.findOne({email}) 
           if(userExists){
             res.json({success:false, error:"The user is already registered", response: null})
           }else{
-            const passwordHashed = bcryptjs.hashSync(password,10) //salt = string o num. 10 x defecto. num de pasos para encriptar 
+            const passwordHashed = bcryptjs.hashSync(password,10) 
 
             const newUser = new User(
              {name, 
