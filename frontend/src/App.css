@@ -5,11 +5,26 @@
 }
 
 .Navb {
-  height: 4rem;;
+  display: flex;
+  justify-content: space-evenly;
   background-color: #ffc107 !important;
   box-shadow: 0px 0px 50px -24px rgba(0,0,0,1) inset;
 }
 
+.dropdown-menu {
+  width: 20%!important;
+  position: absolute;
+  z-index: 1000;
+  display: none;
+  min-width: 10rem;
+  margin: 0;
+  font-size: 1rem;
+  color: #ffffff!important;
+  text-align: left;
+  list-style: none;
+  border:1px solid black;
+  border-radius: 0!important;
+}
 .white-link {
   border-radius: 35px;
   font-size: 25px;
@@ -18,11 +33,20 @@
   color: rgb(255, 255, 255);
 }
 
+.welc{
+  color:black;
+}
+.myt{
+  width: 50%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-.white-link:hover {
+/* .white-link:hover {
   box-shadow: 0px 0px 30px var(--marroncito);
   color: rgb(167, 110, 6);
-}
+} */
 .personita:hover{
   color: rgb(167, 110, 6)!important;
   border-radius:unset!important;
@@ -30,11 +54,7 @@
 
 }
 
-.personita {
-  font-size: 35px;
-  margin: 0;
-  color:white;
-}
+
 
 
 a {
@@ -327,6 +347,8 @@ background-color: rgba(255, 255, 255, 0.515);
     border: none;
     
   }
+
+  
   .formulario{
     width: 90%!important;
    }
@@ -337,11 +359,44 @@ background-color: rgba(255, 255, 255, 0.515);
    }
 
 }
+
+@media (max-width: 480px){
+  .white-link{
+    font-size: 18px;
+   margin-right: 1rem;
+  margin-left: 1rem;
+  border-radius: 15px;;
+  
+  }
+
+ 
+  .navbar>.container {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+}
+  .welcome{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    line-height: 30px;
+  }
+
+  .container{
+    margin-right: 0!important;
+    
+  }
+}
 @media (max-width: 425px) {
   .card:hover .txt-description {
     display: none;
   }
 
+
+  
   
 
   .titulo-medio {
@@ -760,3 +815,4 @@ legend{
 
 
 }
+

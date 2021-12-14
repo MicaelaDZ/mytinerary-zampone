@@ -9,6 +9,9 @@ import {useNavigate} from "react-router-dom"
 
 function SignupComponent(props){
   let navigate = useNavigate()
+  localStorage.getItem("token") && !props.token && props.signInToken()
+  props.token && navigate("/", {replace: true})
+
   const responseGoogle = (response) => {
     let googleUser = {
       name: response.profileObj.givenName,
@@ -52,10 +55,10 @@ function SignupComponent(props){
     country.current.value = ""
   
   }
-  useEffect(()=> {
-    props.token && navigate("/", {replace: true})
+  
+    
 
-  }, [])
+  
   
     return(
         <>

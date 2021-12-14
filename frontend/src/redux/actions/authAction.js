@@ -10,7 +10,11 @@ const authAction = {
                     ...newUser})
                 
                 if(user.data.success && !user.data.error){
-                   
+                    console.log(user)
+                    toast.success("Hello " + user.data.response.newUser.name, {
+                        position: toast.POSITION.TOP_CENTER,
+                       icon: "👌"
+                    }) 
                 localStorage.setItem("token", user.data.response.token)
                 dispatch({type: "NEW_USER", payload: user})
                 }else{

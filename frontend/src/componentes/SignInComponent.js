@@ -28,10 +28,10 @@ function SignInComponent(props){
     password.current.value = ""
       
   }
-  useEffect(()=> {
+  
     props.token && navigate("/", {replace: true})
 
-  }, [])
+ 
     return(
         <>
         <div className="contenedorsignin">
