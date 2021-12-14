@@ -15,6 +15,7 @@ function CardsItineraries(props) {
     !props.cities[0] && props.getCities() //si no existen cities, traelas
     props.cities[0] && props.findCity(props.cities, params.id) //si existe cities, encontrame una ciudad por id (los paranms)
     props.getItinerariesByCityId(params.id)
+    /* eslint-disable jsx-a11y/alt-text */
   }, [props.cities]) //c/vez q se atualiza props.cities: se ejecuta useEff
   console.log(props)
 
@@ -37,10 +38,10 @@ function CardsItineraries(props) {
       {
       props.cities[0] ? (
         props.itineraries.length > 0 
-        ? (props.itineraries.map(itinerary=><Itinerary key={itinerary._id}itinerary={itinerary} />)) : (
+        ? (props.itineraries.map((itinerary, index) => (<Itinerary key={index} itinerary={itinerary} />))) : (
           <h1>There are not itineraries for this city yet...</h1>
           )): <Spinner className="spinner" animation="border" variant="warning" />}
-          <Link className="botones m-4"to="/cities">Back to Cities</Link>
+          <Link className="botones"to="/cities"> Back to Cities</Link>
     </div>
     </>
   )

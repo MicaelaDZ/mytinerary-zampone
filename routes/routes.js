@@ -39,7 +39,8 @@ Router.route("/auth/signup")
 Router.route("/auth/signin")
 .post( authController.signInUser) 
 
-// Router.route("/auth/")
+Router.route("/auth")
+.get(passport.authenticate("jwt", {session: false}), authController.token)
 //chequea el token y si esta todo bien pasa a la accion: loguearse.
 
 

@@ -20,8 +20,10 @@ const authController = {
               password: passwordHashed, 
               photo, 
               country,
-              google}) 
+              google
+            }) 
               console.log(newUser)
+              
             const token = jwt.sign({...newUser}, process.env.SECRET_KEY)
           
             await newUser.save()
@@ -57,7 +59,10 @@ const authController = {
           }catch(error) {
             res.json({success:false,response: null, error:"Email or password doesnt exist"})
           }
-        }
+        },
+        token: (req, res) => {
+          res.json(req.user)
+        },
        
 }
 

@@ -2,9 +2,7 @@ const joi = require("joi")//libreria  para validaciones.
 
 const validator = (req, res, next) => {
     const schema = joi.object({
-        email: joi.string(),
-        password: joi.string(),
-        
+      
         name: joi.string().trim().min(2).max(15).required().pattern(new RegExp('[a-zA-Z]$')).messages({
             "string.empty": "Your Name is a required field",
             "string.min": "Your Name must have at least 2 characters",
@@ -17,9 +15,18 @@ const validator = (req, res, next) => {
             "string.max": "Your Name could have max. 15 characters",
             "string.pattern.base": "Your Name must contain only letters",
         }),
-        photo: joi.string(),
-        country: joi.string(),
-       
+        email: joi.string().email().min(4).trim().pattern(new RegExp('[a-zA-A]')).required().messages({
+            'string.empty' : "This field is required",
+            'string.min' : "This field must be at least 3 characters long"
+        }),   
+        password: joi.string().required().trim().messages({
+            'string.empty' : "This field is required"           
+        }),   
+        photo: joi.string().trim(),
+        country: joi.string().required().messages({
+            'string.empty' : "This field is required"           
+        }),   
+        google: joi.boolean(),
         
              
     })

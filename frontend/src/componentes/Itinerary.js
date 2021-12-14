@@ -12,12 +12,11 @@ export default function Itinerary({itinerary}) {
   }
 
   return (
-    <>
-      
-          <div key={itinerary._id} className="d-flex justify-content-center">
+    <> 
+          <div className="d-flex justify-content-center">
           <div className="itinerarioCard">
             <h2>{itinerary.itineraryName}</h2>
-            <img className="singleCard" variant="top" src={itinerary.userImg} key={itinerary._id} alt="." />
+            <img className="singleCard" variant="top" src={itinerary.userImg}  alt="." />
             <h4>{itinerary.userName}</h4>
             
             <div className="div">
@@ -39,11 +38,11 @@ export default function Itinerary({itinerary}) {
                 ))}
             </div>
            
-            <div className="">
+            <div className="viewmoree">
               {display && (
                 <h4>Under Construction...</h4>
               )}
-             <button onClick={handleClick}>
+             <button className="viewmore" onClick={handleClick}>
               {" "}
               {display ? "View less" : "View more"}
              </button>

@@ -1,14 +1,21 @@
-import {useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
 import authAction from '../redux/actions/authAction';
 import GoogleLogin from 'react-google-login'
+import {useNavigate} from "react-router-dom"
 
 function SignInComponent(props){
+  let navigate = useNavigate()
   const responseGoogle = (response) => {
-    console.log(response);
+    props.signIn(
+      response.profileObj.email,
+      response.profileObj.googleId,
+      true
+    )
   }
-  !props.token && props.signInToken()
+  localStorage.getItem("token") && !props.token && props.signInToken()
+  
   const email = useRef()
   const password = useRef()
   
@@ -21,7 +28,10 @@ function SignInComponent(props){
     password.current.value = ""
       
   }
- 
+  useEffect(()=> {
+    props.token && navigate("/", {replace: true})
+
+  }, [])
     return(
         <>
         <div className="contenedorsignin">

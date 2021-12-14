@@ -5,6 +5,7 @@
 }
 
 .Navb {
+  height: 4rem;;
   background-color: #ffc107 !important;
   box-shadow: 0px 0px 50px -24px rgba(0,0,0,1) inset;
 }
@@ -13,6 +14,7 @@
   border-radius: 35px;
   font-size: 25px;
   margin-right: 2rem;
+  margin-left: 2rem;
   color: rgb(255, 255, 255);
 }
 
@@ -584,6 +586,7 @@ object-fit: cover;
 }
 
 .fondo-itinerario{
+  min-height: 100vh;
   background-image: linear-gradient(
     185deg,
     #e0d371 0,
@@ -639,9 +642,26 @@ object-fit: cover;
   justify-content:space-evenly;
 }
 
+.viewmore{
+  margin-top:1rem;
+  border-radius: 10px;
+  background-color:var(--fondoClaro) ;
+  color:rgb(0, 0, 0);
+  
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display:flex;
+  justify-content:center;
+}
+
+.viewmoree{
+  padding:1rem;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
 /*register*/
 .botones{
-  padding: 1rem;
+  padding: 0.5rem;
   margin:1rem;
   border-radius: 10px;
   background-color:var(--fondoClaro) ;
@@ -716,4 +736,27 @@ legend{
 .googlelogin{
   margin: 1rem;
   align-self: center;
+}
+
+.welcome{
+  display:flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  line-height: 30px;
+}
+
+.welcome2{
+  display: flex;
+  justify-content: space-evenly!important;
+}
+.account-img{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%; 
+  object-fit: cover;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+
+
 }

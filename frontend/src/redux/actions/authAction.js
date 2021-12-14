@@ -1,26 +1,20 @@
-const axios = require("axios")
+import axios from 'axios'
+import {toast} from 'react-toastify';
 
 const authAction = {
 
-    signupUser: (name,lastName,email,password,photo,country,google ) => {
+    signupUser: (newUser) => {
         return async (dispatch, getState) =>{
             try {
                 const user = await axios.post("http://localhost:4000/api/auth/signup",  {
-                    name,
-                    lastName,
-                    email,
-                    password,
-                    photo,
-                    country,
-                    google:false,
-                  })
+                    ...newUser})
                 
                 if(user.data.success && !user.data.error){
                    
                 localStorage.setItem("token", user.data.response.token)
-                   dispatch({type: "NEW_USER", payload: user})
+                dispatch({type: "NEW_USER", payload: user})
                 }else{
-                    return{error: [{message:user.data.error}]}
+                    toast.error(user.data.response)
                 }
             }catch(error){
                 console.error(error)
@@ -29,16 +23,18 @@ const authAction = {
     },
     signIn: (email,password) => {
         return async(dispatch,getState) => {
-            
-            try{
-                
+            try{                
                 const user = await axios.post("http://localhost:4000/api/auth/signin", {email,password})
                 console.log(user)
                 if(user.data.success && !user.data.error){
                     localStorage.setItem("token", user.data.response.token)
+                    toast.success("Welcome " + user.data.response.name, {
+                        position: toast.POSITION.TOP_CENTER,
+                       icon: "👌"
+                    })
                     dispatch({type:"USER", payload: user})
                 }else{
-                    alert("User or password are not correct")
+                    toast.error(user.data.error)
                 }
             }catch(error){
                 console.error(error)
@@ -49,7 +45,7 @@ const authAction = {
         return async(dispatch, getState)=>{
             try{
                 const token = localStorage.getItem("token")
-                const user = await axios.get("http://localhost:4000/api/auth/tokensign",{
+                const user = await axios.get("http://localhost:4000/api/auth",{
                 headers:{
                     Authorization: `Bearer ${token}`}
             })
@@ -71,4 +67,4 @@ const authAction = {
     }
 
 
-module.exports = authAction
+export default authAction
