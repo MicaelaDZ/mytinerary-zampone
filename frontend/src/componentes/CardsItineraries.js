@@ -2,6 +2,7 @@ import {useEffect} from "react"
 import {connect} from "react-redux"
 import citiesAction from "../redux/actions/citiesAction"
 import itinerariesAction from '../redux/actions/itinerariesAction'
+import authAction from '../redux/actions/authAction'
 import {useParams} from "react-router-dom"
 import Itinerary from "./Itinerary"
 import {Link} from "react-router-dom"
@@ -38,9 +39,9 @@ function CardsItineraries(props) {
       {
       props.cities[0] ? (
         props.itineraries.length > 0 
-        ? (props.itineraries.map((itinerary, index) => (<Itinerary key={index} itinerary={itinerary} />))) : (
-          <h1>There are not itineraries for this city yet...</h1>
-          )): <Spinner className="spinner" animation="border" variant="warning" />}
+        ? (props.itineraries.map((itinerary, index) => (<Itinerary key={index} itinerary={itinerary} user={props.user} city={params.id} />))) : (
+          <h1 className="there">There are not itineraries for this city yet...</h1>
+          )): <Spinner className="spinner d-flex justify-content-center" animation="border" variant="warning" />}
           <Link className="botones"to="/cities"> Back to Cities</Link>
     </div>
     </>
@@ -52,14 +53,20 @@ const mapDispatchToProps = {
   getCities: citiesAction.getCities,
   findCity: citiesAction.findCity,
   getItinerariesByCityId: itinerariesAction.getItinerariesByCityId,
+  signInToken: authAction.signInToken
+  
+  
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   //trae los estados  q estan en el reducer y lo manda a props
   return {
     cities: state.citiesReducer.cities,
     city: state.citiesReducer.city,
     itineraries: state.itinerariesReducer.itineraries,
+    token: state.authReducer.token,
+    user: state.authReducer.user,
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CardsItineraries)

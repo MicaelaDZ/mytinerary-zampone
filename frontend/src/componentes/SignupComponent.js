@@ -110,7 +110,7 @@ function SignupComponent(props){
 
 const mapStateToProps= (state)=>{
   return  {
-    newUser: state.authReducer.newUser,
+    user: state.authReducer.user,
     token: state.authReducer.token
   }
 }

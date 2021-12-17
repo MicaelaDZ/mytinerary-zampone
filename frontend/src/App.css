@@ -304,6 +304,22 @@ background-color: rgba(255, 255, 255, 0.515);
   .linkFooter {
     font-size: 15px;
   }
+
+  .itinerarioCard{
+    display: flex; 
+    align-self: center; 
+    flex-direction: column;
+    align-items: center;
+    padding:1rem;
+    margin:1rem;
+    background-color: rgba(255, 255, 255, 0.774);
+    width: 90vw!important;
+    line-height-step: 40vh;
+    border: 1px solid white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 30px black;
+  }
+  
   .padreLinks {
     display: flex;
     flex-direction: column;
@@ -317,17 +333,6 @@ background-color: rgba(255, 255, 255, 0.515);
     width: 50px;
     height: 50px;
   }
-
-  .div{
-    display: flex;
-    flex-direction: column;
-
-  }
-
-  .hashtag{
-    display: flex;
-    flex-direction: column;
-   }
 
   .tag{
     margin:0!important;
@@ -345,6 +350,19 @@ background-color: rgba(255, 255, 255, 0.515);
     
   }
 
+  .there{
+    padding: 2rem;
+    font-size:20px!important;
+   
+  }
+  .botones{
+    font-size: 15px!important;
+    padding: 0.3rem!important;
+    margin:1rem;
+    width: 8vw;
+    height: 2rem;
+    
+  }
   
   .formulario{
     width: 90%!important;
@@ -358,6 +376,11 @@ background-color: rgba(255, 255, 255, 0.515);
 }
 
 @media (max-width: 480px){
+  .card:hover .txt-description {
+    display: none;
+  }
+
+ 
   .white-link{
     font-size: 18px;
    margin-right: 1rem;
@@ -391,11 +414,7 @@ background-color: rgba(255, 255, 255, 0.515);
   .card:hover .txt-description {
     display: none;
   }
-
-
-  
-  
-
+ 
   .titulo-medio {
     color: white;
     background-color: rgba(0, 0, 0, 0.515);
@@ -408,7 +427,6 @@ background-color: rgba(255, 255, 255, 0.515);
   }
 
   .contenedorSlider {
-    
     height: 100%;
     background-image: linear-gradient(
       185deg,
@@ -475,6 +493,17 @@ background-color: rgba(255, 255, 255, 0.515);
   .icon-f {
     width: 50px;
     height: 50px;
+  }
+  .singleCard {
+    width: 100px!important;
+    height: 100px!important;
+   margin: 1rem;
+     
+    } 
+  .div, .hashtag{
+    display: flex;
+    flex-direction: column;
+    
   }
 }
 
@@ -607,7 +636,7 @@ input {
   width: 60vw;
   line-height-step: 40vh;
   border: 1px solid white;
-  border-radius: 25px;
+  border-radius: 15px;
   box-shadow: 0px 0px 30px black;
 }
 
@@ -666,10 +695,17 @@ object-fit: cover;
   background-color: rgba(255, 255, 255, 0.479);
   color:rgb(0, 0, 0);
   /* text-shadow:  0.5px 0.5px rgb(255, 255, 255); */
-  font-size: 1rem;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   border-radius: 5px;
 
+}
+
+.there{
+  padding:2rem;
+  text-align:center;
+  font-size:30px;
+  color:White;
 }
 
 .back{
@@ -692,6 +728,7 @@ object-fit: cover;
 .hashtag{
   display:flex;
   justify-content:space-evenly;
+  color:blue;
 }
 
 .viewmore{
@@ -699,7 +736,7 @@ object-fit: cover;
   border-radius: 10px;
   background-color:var(--fondoClaro) ;
   color:rgb(0, 0, 0);  
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   display:flex;
   justify-content:center;
 }
@@ -714,7 +751,8 @@ object-fit: cover;
 .botones{
   padding: 0.5rem;
   margin:1rem;
-  border-radius: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
   background-color:var(--fondoClaro) ;
   color:rgb(0, 0, 0);
   width: 10vw;

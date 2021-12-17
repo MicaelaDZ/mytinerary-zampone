@@ -1,7 +1,6 @@
 const initialState = {
   state: [],
-  newUser: { name: "" }, //para que lea en navigation esta prop
-  token: "",
+   token: "",
   user: {}
 };
 
@@ -10,7 +9,7 @@ const authReducer = (state = initialState, action) => {
     case "NEW_USER":
       return {
         ...state,
-        newUser: action.payload,
+        user: action.payload,
       };
       case "USER":
       return {
@@ -21,13 +20,13 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         token: action.payload,
-        newUser: action.payload
+        user: action.payload
       };
     case "SIGN_OUT":
        return {
         ...state,
         token: action.payload,
-        newUser: action.payload
+        user: action.payload
       };
 
     default:

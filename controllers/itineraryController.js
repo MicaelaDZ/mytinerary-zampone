@@ -7,10 +7,8 @@ const itineraryController = {
       .then((response) => res.json({response}))
   },
   returnItinerary: (req, res) => {
-    //find de js es findOne en mongoose
-    Itinerary.findOne({_id: req.params.id}).then((response) => {
-      res.json({response})
-    })
+    Itinerary.findOne({_id: req.params.id})
+    .then((response) => {res.json({response})})
   },
   returnItinerariesByCity: (req, res) => {
     Itinerary.find({city: {_id: req.params.city}}) 
@@ -32,9 +30,14 @@ const itineraryController = {
       comments,
       city,
     } = req.body
-    const itinerary = new Itinerary({...req.body})
-      .save() //guarda la info en mongoDB
+    const itinerary = new Itinerary({...req.body}).save()
       .then((response) => res.json({response: {itinerary}}))
+      .catch((err) => console.log(err))
+  },
+ 
+  modifyItinerary: (req, res) => {
+    Itinerary.findOneAndUpdate({_id: req.params.id}, {...req.body})
+      .then((response) => res.json({response}))
       .catch((err) => console.log(err))
   },
   deleteItinerary: async (req, res) => {
@@ -45,11 +48,6 @@ const itineraryController = {
       console.log(error)
     }
     res.json({success: true})
-  },
-  modifyItinerary: (req, res) => {
-    Itinerary.findOneAndUpdate({_id: req.params.id}, {...req.body})
-      .then((response) => res.json({response}))
-      .catch((err) => console.log(err))
   },
 }
 
