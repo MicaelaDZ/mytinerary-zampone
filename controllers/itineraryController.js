@@ -78,14 +78,11 @@ const itineraryController = {
   },
 editComment: async (req, res) => {
     try {
-      await Comment.findOneAndUpdate({ _id: req.body.id }, { ...req.body });
+      //si no tengo new true findone devuelve la lista no editada. true me duvuevle la editada, sin true la pasa y dps la edita
+      let commentEdit = await Comment.findOneAndUpdate({ _id: req.body.id }, { message: req.body.message}, {new:true});
       res.json({
         success: true,
-        response:
-          "Updated comment with id " +
-          req.body.id +
-          ", with the next data: " +
-          JSON.stringify(req.body.message),
+        response:commentEdit
       });
     } catch (e) {
       res.json({ success: false, error: e });
