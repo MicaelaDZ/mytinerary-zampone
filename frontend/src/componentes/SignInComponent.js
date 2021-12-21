@@ -43,10 +43,7 @@ function SignInComponent(props){
             <label htmlFor="pass" >Password</label>
             <input type="password" ref={password} placeholder="Password"className=""  id="pass" />
             <input className="botones p-1 fs-small btn-form txt-center" type="submit" value="Log in"/>
-            <div className="already">
-              <p>Don't you have an account yet? </p>
-              <Link to='/signup'><span> Create new account</span></Link>            
-            </div>
+            <p >or</p>
             <div className="googlelogin">
               <GoogleLogin
               clientId="976419191370-0f3qd6gishicdla3a3sn99f76pht65v2.apps.googleusercontent.com"
@@ -57,6 +54,10 @@ function SignInComponent(props){
               />
 
               </div>
+              <div className="already">
+              <p>Don't you have an account yet? </p>
+              <Link to='/signup'><span className="Create"> Create new account</span></Link>            
+            </div>
         </form>
         </div>
        

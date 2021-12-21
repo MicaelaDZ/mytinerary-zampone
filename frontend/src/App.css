@@ -184,11 +184,6 @@ a {
   transition: 0.4s;
 }
 
-.cardTitle2:hover{ 
-background-color: rgba(255, 255, 255, 0.515);
- padding: 1rem;
- border-radius: 25px; 
-}
 
 .card:hover .card-title {
   font-size: 30px;
@@ -202,15 +197,7 @@ background-color: rgba(255, 255, 255, 0.515);
   transition: 0.5s;
 }
 
-.card:hover .txt-description {
-  transition: 0.6s!important;
-  font-weight: bold;
-  opacity: 1;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.616);
-  padding: 1rem;
-  border-radius: 25px;
-}
+
 
 /*Footer*/
 .footer {
@@ -277,6 +264,21 @@ background-color: rgba(255, 255, 255, 0.515);
 }
 
 @media (max-width: 1600px) {
+ 
+  .itinerarioCard{
+    display: flex; 
+    align-self: center; 
+    flex-direction: column;
+    align-items: center;
+    padding:1rem;
+    margin:1rem;
+    background-color: rgba(255, 255, 255, 0.774);
+    width: 70vw!important;
+    line-height-step: 40vh;
+    border: 1px solid white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 30px black;
+  }
   .contenedorSlider {
     height: 100%;
     padding-bottom: 2rem;
@@ -297,12 +299,35 @@ background-color: rgba(255, 255, 255, 0.515);
     font-size: 1rem;
   }
 }
+
+@media(max-width: 1100px){
+  .itinerarioCard{
+    display: flex; 
+    align-self: center; 
+    flex-direction: column;
+    align-items: center;
+    padding:1rem;
+    margin:1rem;
+    background-color: rgba(255, 255, 255, 0.774);
+    width: 90vw!important;
+    line-height-step: 40vh;
+    border: 1px solid white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 30px black;
+  }
+}
 @media (max-width: 900px) {
+
+ .Cards:hover .txt-description {
+ display:none;
+}
+
+
   .redes {
     display: block;
   }
   .linkFooter {
-    font-size: 15px;
+    font-size:15px;
   }
 
   .itinerarioCard{
@@ -375,11 +400,34 @@ background-color: rgba(255, 255, 255, 0.515);
 
 }
 
-@media (max-width: 480px){
-  .card:hover .txt-description {
-    display: none;
-  }
+@media (max-width: 768px){
 
+.viewmoree{
+  padding:1rem;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+  /* margin:1rem; */
+}
+ 
+.activity{
+  margin:1rem;
+}
+
+.activityPic{
+  padding:1rem;
+
+  width: 250px;
+  height: 200px;
+  border-radius: 25px;
+}
+
+
+}
+
+@media (max-width: 480px){
+  
  
   .white-link{
     font-size: 18px;
@@ -411,8 +459,11 @@ background-color: rgba(255, 255, 255, 0.515);
   }
 }
 @media (max-width: 425px) {
-  .card:hover .txt-description {
-    display: none;
+  .minidiv{
+    margin:0.5rem;
+    display:flex;
+    align-self: center;
+   
   }
  
   .titulo-medio {
@@ -452,6 +503,9 @@ background-color: rgba(255, 255, 255, 0.515);
 
   .Cards {
     margin: 0 !important;
+  }
+  .Cards:hover .txt-description {
+    display: none;
   }
 
   .cityFilter {
@@ -591,8 +645,19 @@ input {
   transform: scale(0.95);
   transition: 0.4s;
 }
+
 .Cards:hover {
   transform: scale(0.999);
+}
+
+.Cards:hover .txt-description {
+  transition: 0.6s!important;
+  font-weight: bold;
+  opacity: 1;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.616);
+  padding: 1rem;
+  border-radius: 25px;
 }
 
 /*paginaCity*/
@@ -659,11 +724,10 @@ object-fit: cover;
 
 .spinner{
   color:var(--navBar)!important;
-  display: flex!important;
-  justify-content: center!important;
-  align-items:center;
-  width: 50px;
-  height: 50px;
+  align-self: center;
+ display:flex;
+ justify-content: center;
+ 
 }
 
 .fondo-itinerario{
@@ -715,10 +779,12 @@ object-fit: cover;
 .div{
   display:flex;
 }
+
 .minidiv{
   margin:0.5rem;
   display:flex;
   justify-content: space-evenly!important;
+ 
 }
 
 .tag{
@@ -738,14 +804,17 @@ object-fit: cover;
   color:rgb(0, 0, 0);  
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   display:flex;
+ 
   justify-content:center;
+ 
 }
 
 .viewmoree{
   padding:1rem;
   display:flex;
-  flex-direction: column;
+  
   align-items: center;
+  width:100%;
 }
 /*register*/
 .botones{
@@ -821,6 +890,11 @@ legend{
   justify-content:space-between;
 }
 
+.Create{
+  margin-left: 1em;
+  padding:0.5rem;
+  background-color: #ffffff8c;
+}
 
 .googlelogin{
   margin: 1rem;
@@ -849,4 +923,64 @@ legend{
 
 
 }
+/* 
+.title-carditinerary{
+  margin: 3rem;
+  padding:0.5rem;
+  background-color: #e2520ec0;
+} */
 
+
+.activity{
+  width: 100%;
+  display:flex!important;
+  justify-content: space-around!important;
+  
+}
+.activityPic{
+  padding:1rem;
+  background-size: cover;
+  background-position: center;
+  width: 190px;
+  height: 160px;
+  border-radius: 25px;
+}
+
+.activityName{
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.473);;
+  transition: 1s;
+  color:rgb(0, 0, 0);
+  font-size: small;
+
+}
+
+.activityName:hover{
+  font-size: large;
+  transition: 1s;
+  background-color: rgba(255, 255, 255, 0.774);;
+}
+
+.heartlike{
+  width:20px;
+  height: 20px;
+  
+}
+
+.heartlike:active{
+  animation: press 0.1s 1 linear;
+}
+
+@keyframes press {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}

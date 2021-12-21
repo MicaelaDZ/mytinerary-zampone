@@ -1,12 +1,11 @@
-const mongoose = require('mongoose')
-
+const mongoose = require("mongoose");
 
 const commentSchema = new mongoose.Schema({
-    itineraryId: {type: mongoose.Schema.Types.ObjectId, ref:'itinerary'},
-    user: {type: String, required: true},
-    comment: {type: String, required: true}
+  user: { type: [{ type: mongoose.Types.ObjectId, ref: "user" }] },
+  itinerary: { type: [{ type: mongoose.Types.ObjectId, ref: "itinerary" }] },
+  message: { type: String, require: true }
 });
 
-const Comment = mongoose.model('comment', commentSchema)
+const Comment = mongoose.model("comment", commentSchema);
 
-module.exports = Comment
+module.exports = Comment;

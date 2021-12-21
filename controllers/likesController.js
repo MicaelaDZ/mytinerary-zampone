@@ -6,7 +6,7 @@ const likesController = {
         console.log(req.body.userId)
         const id = req.body.itineraryId
         console.log(req.body.itineraryId)
-        const itinerary = await Itinerary.findOne({_id:id})
+        const itinerary = await Itinerary.findOne({_id:id}).lean()
          const likeExist = itinerary.likes.some((like) => like === req.body.userId ) 
         console.log(likeExist)
 
@@ -17,6 +17,7 @@ const likesController = {
                 },
                 {new:true}
             )
+            .lean()
             .then((response) => {
                 res.json({response:response, like:true})
             })
@@ -30,6 +31,7 @@ const likesController = {
                 },
                 {new:true}
             )
+         
              .then((response) => {
                 res.json({response:response, like:false})
             })

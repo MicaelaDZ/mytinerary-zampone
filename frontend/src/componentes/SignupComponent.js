@@ -82,6 +82,7 @@ function SignupComponent(props){
               }))}
             </select>
             <input className="botones p-1 fs-small btn-form" type="submit" value="Sign Up" />
+            <p >or</p>
             <div className="googlelogin">
               <GoogleLogin
               clientId="976419191370-0f3qd6gishicdla3a3sn99f76pht65v2.apps.googleusercontent.com"
@@ -96,7 +97,7 @@ function SignupComponent(props){
             
         <div className="already">
               <p>Already have an account? </p>
-              <Link to='/signin'><span> Sign in here!</span></Link>            
+              <Link to='/signin'><span className="Create"> Sign in here!</span></Link>            
             </div>
             
         </form>

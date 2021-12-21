@@ -1,4 +1,4 @@
-import {useEffect} from "react"
+import {useEffect, useState} from "react"
 import {connect} from "react-redux"
 import citiesAction from "../redux/actions/citiesAction"
 import itinerariesAction from '../redux/actions/itinerariesAction'
@@ -7,18 +7,26 @@ import {useParams} from "react-router-dom"
 import Itinerary from "./Itinerary"
 import {Link} from "react-router-dom"
 import { Spinner } from "react-bootstrap";
+import useConstructor from "./Loading"
+
 
 function CardsItineraries(props) {
   const params = useParams()
+
+  useConstructor(() => {
+    props.setLoad();
+  });
+
+  const [likes, setlikes] = useState("")
 
   useEffect(() => {
     //asi no se hace el loop infinito. compDidmount
     !props.cities[0] && props.getCities() //si no existen cities, traelas
     props.cities[0] && props.findCity(props.cities, params.id) //si existe cities, encontrame una ciudad por id (los paranms)
-    props.getItinerariesByCityId(params.id)
+    props.getItinerariesByCityId(params.id, false)
     /* eslint-disable jsx-a11y/alt-text */
   }, [props.cities]) //c/vez q se atualiza props.cities: se ejecuta useEff
-  console.log(props)
+  
 
   const back = {
     backgroundImage: "url(" + props.city.src + ")",
@@ -29,44 +37,47 @@ function CardsItineraries(props) {
     "backgroundSize": "cover",
     "zIndex": "-1",
   }
-
+  console.log(props.isLoading)
   return (
     <>
     <div className="fondo-itinerario">
       <div className="back" style={back}></div>
-      <h1 className="d-flex justify-content-center">{props.city.name}</h1>
+      <h1 className="title-carditinerary d-flex justify-content-center">{props.city.name}</h1>
       <p className="description container">{props.city.description}</p>
       {
+        props.isLoading ? (
+          <div className="spinner">
+            <Spinner  animation="border" variant="warning" /></div>)
+           : (
       props.cities[0] ? (
         props.itineraries.length > 0 
-        ? (props.itineraries.map((itinerary, index) => (<Itinerary key={index} itinerary={itinerary} user={props.user} city={params.id} />))) : (
+        ? (props.itineraries.map((itinerary, index) => (<Itinerary key={index} itinerary={itinerary} user={props.user} activities={props.activities} city={params.id} />))) : (
           <h1 className="there">There are not itineraries for this city yet...</h1>
-          )): <Spinner className="spinner d-flex justify-content-center" animation="border" variant="warning" />}
+          )): "")
+          }
           <Link className="botones"to="/cities"> Back to Cities</Link>
     </div>
     </>
   )
 }
 
-const mapDispatchToProps = {
-  //las acciones los guarda en las props
+const mapDispatchToProps = { 
   getCities: citiesAction.getCities,
   findCity: citiesAction.findCity,
   getItinerariesByCityId: itinerariesAction.getItinerariesByCityId,
-  signInToken: authAction.signInToken
-  
+  setLoad: itinerariesAction.setLoad
   
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
-  //trae los estados  q estan en el reducer y lo manda a props
+
   return {
     cities: state.citiesReducer.cities,
     city: state.citiesReducer.city,
     itineraries: state.itinerariesReducer.itineraries,
-    token: state.authReducer.token,
     user: state.authReducer.user,
+    activities: state.activitiesReducer.activities,
+    isLoading: state.itinerariesReducer.isLoading
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CardsItineraries)

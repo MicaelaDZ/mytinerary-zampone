@@ -27,6 +27,7 @@ const authController = {
             const token = jwt.sign({...newUser}, process.env.SECRET_KEY)
           
             await newUser.save()
+           
             res.json({success:true, response: {token,newUser}, error: null})
           }
 

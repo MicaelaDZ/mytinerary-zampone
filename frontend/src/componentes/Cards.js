@@ -37,9 +37,11 @@ function Cards(props) {
                     <Card.ImgOverlay>
                       <Card.Body>
                         <Card.Title className="cardTitle2">
-                          {city.name}, {city.country}
+                          {city.name}, {city.country} 
                         </Card.Title>
-                       
+                        <Card.Text className="txt-description">
+                      {city.description}
+                    </Card.Text>
                       </Card.Body>
                     </Card.ImgOverlay>
                   </Card>
