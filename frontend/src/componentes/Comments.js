@@ -40,6 +40,7 @@ function Comments(props) {
         editComment.current.value = ""
     }
 
+  
     return(
         <div className="comentario">
           <div>
