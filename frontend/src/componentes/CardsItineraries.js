@@ -1,8 +1,7 @@
-import {useEffect, useState} from "react"
+import {useEffect} from "react"
 import {connect} from "react-redux"
 import citiesAction from "../redux/actions/citiesAction"
 import itinerariesAction from '../redux/actions/itinerariesAction'
-import authAction from '../redux/actions/authAction'
 import {useParams} from "react-router-dom"
 import Itinerary from "./Itinerary"
 import {Link} from "react-router-dom"
@@ -16,8 +15,6 @@ function CardsItineraries(props) {
   useConstructor(() => {
     props.setLoad();
   });
-
-  const [likes, setlikes] = useState("")
 
   useEffect(() => {
     !props.cities[0] && props.getCities() 

@@ -69,7 +69,7 @@ const itineraryController = {
     
 },
 postComment: async (req, res) => {
-  const itinerary = req.body.itinerary //asi se escribe en el controlador
+  const itinerary = req.body.itinerary
   const { user, message } = req.body;
   try {
       await new Comment({itinerary, user, message }).save();

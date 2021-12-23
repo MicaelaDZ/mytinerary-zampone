@@ -7,7 +7,7 @@ import Comments from "./Comments";
 
 function Itinerary(props) {
   const [display, setDisplay] = useState(false);
-  const handleClick = () => setDisplay(!display);
+ 
 
   function price(price) {
     return Array.from({ length: price });

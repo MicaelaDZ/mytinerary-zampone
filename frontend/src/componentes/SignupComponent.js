@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import authAction from '../redux/actions/authAction';
-import {useRef, useEffect} from 'react'
+import {useRef} from 'react'
 import { connect} from 'react-redux'
 import countries from './Countries'
 import React from 'react';
