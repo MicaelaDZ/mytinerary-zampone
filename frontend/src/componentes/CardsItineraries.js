@@ -35,7 +35,7 @@ function CardsItineraries(props) {
     "backgroundSize": "cover",
     "zIndex": "-1",
   }
-  console.log(props.user)
+
   return (
     <>
     <div className="fondo-itinerario">

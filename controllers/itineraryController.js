@@ -85,7 +85,6 @@ postComment: async (req, res) => {
 },
 editComment: async (req, res) => {
     try {
-      //si no tengo new true findone devuelve la lista no editada. true me duvuevle la editada, sin true la pasa y dps la edita
       let commentEdit = await Comment.findOneAndUpdate({ _id: req.body.comment , user:req.user._id}, {message:req.body.message});
       res.json({
         success: true,

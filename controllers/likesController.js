@@ -1,5 +1,5 @@
 const Itinerary = require("../models/Itinerary")
-//some es un booleano. metodo de array
+
 
 const likesController = {
     like: async (req,res) => {

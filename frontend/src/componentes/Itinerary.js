@@ -14,7 +14,7 @@ function Itinerary(props) {
   }
 
   useEffect(() => {
-    props.activities[0] && console.log(props.activities);
+    props.activities[0] && 
     !props.activities[0] && props.getActivities(props.itinerary._id);
   }, [props.activities]);
 
@@ -59,7 +59,7 @@ function Itinerary(props) {
     }
   }
 
-  console.log(props.user);
+
   return (
     <>
       <div className="d-flex justify-content-center">
