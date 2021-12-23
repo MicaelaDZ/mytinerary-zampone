@@ -984,3 +984,83 @@ legend{
     transform: scale(1);
   }
 }
+
+/*contenedor MSG*/
+.comentar{
+  box-shadow: none!important;
+  padding:1.5rem;
+  display:flex;
+  justify-content:flex-start;
+  width: 60vw;
+  border-radius:5px;
+  background-color: rgba(255, 255, 255, 0.418)!important;
+  }
+  .submit{
+    display:flex;
+    justify-content:center;
+  }
+  
+  .btn-submit{
+    box-shadow: none!important;
+    margin:0.5rem;
+  }
+  
+  .comentario{
+    margin:1rem;
+    border: 1px solid rgba(189, 104, 104, 0.253);
+    border-radius: 10px;
+    display:flex;
+    justify-content: space-between;  
+  }
+  
+.contenedorComments{
+  width: 90%;
+  margin: 1rem;
+  
+}
+
+.imgComment{
+  object-fit:cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.comentarioP{
+  align-self: center;
+  margin-left:0.5rem;
+}
+
+.edit{
+  margin:0.5rem;
+    color:black;
+  display:flex;
+  justify-content: flex-end;
+}
+
+.formEdit{
+  display:flex;
+  justify-content: flex-end;
+}
+
+.edityourcomment{
+  margin:0.5rem;
+  padding:1rem;
+ width:15rem;
+  box-shadow: none!important;
+  align-self:center;
+  display:flex;
+  justify-content:center;
+}
+
+
+
+
+
+.btn-edit{
+  font-size: small;
+  box-shadow: none!important;
+  margin:0.5rem;
+  width: 15rem;
+}
+

@@ -1,14 +1,11 @@
-import { useState, useEffect } from "react";
-import Modal from "react-bootstrap/Modal";
+import { useState, useEffect, useRef } from "react";
 import itinerariesAction from "../redux/actions/itinerariesAction";
 import { connect } from "react-redux";
 import activitiesAction from "../redux/actions/activitiesAction";
-import {toast} from 'react-toastify';
-
-
+import { toast } from "react-toastify";
+import Comments from "./Comments";
 
 function Itinerary(props) {
- 
   const [display, setDisplay] = useState(false);
   const handleClick = () => setDisplay(!display);
 
@@ -21,57 +18,71 @@ function Itinerary(props) {
     !props.activities[0] && props.getActivities(props.itinerary._id);
   }, [props.activities]);
 
+  const [liked, setliked] = useState("");
+  const [likes, setlikes] = useState("");
 
-  const [liked, setliked] = useState("")
-  const [likes, setlikes] = useState("")
+  const comment = useRef();
+
+  function handleComment(e) {
+    e.preventDefault();
+    props.postComments(
+      props.itinerary._id,
+      props.user._id,
+      comment.current.value
+    );
+    comment.current.value = "";
+  }
 
   useEffect(() => {
-    !props.user && setliked(false)
-    if(props.user){
-      setliked(props.itinerary.likes.some((id) => id === props.user._id))
+    !props.user && setliked(false);
+    if (props.user) {
+      setliked(props.itinerary.likes.some((id) => id === props.user._id));
     }
-  }, [props.user])
-  
+  }, [props.user]);
+
   if (props.itinerary && liked === "" && likes === "") {
-    if(props.user){
-      setliked(props.itinerary.likes.some((id) => id === props.user._id))
+    if (props.user) {
+      setliked(props.itinerary.likes.some((id) => id === props.user._id));
     }
-    setlikes(props.itinerary.likes.length)
+    setlikes(props.itinerary.likes.length);
   }
 
   function handleLike() {
     if (localStorage.getItem("token")) {
-      setliked(!liked)
-      liked ? setlikes(likes - 1) : setlikes(likes + 1)
-      props.likes(props.user._id, props.itinerary._id, props.params)
+      setliked(!liked);
+      liked ? setlikes(likes - 1) : setlikes(likes + 1);
+      props.likes(props.user._id, props.itinerary._id, props.params);
     } else {
       toast.warning("Please sign in to like this itinerary", {
         position: toast.POSITION.TOP_CENTER,
-      })
+      });
     }
   }
 
- 
-
-  return (    
-    <>  
+  console.log(props.user);
+  return (
+    <>
       <div className="d-flex justify-content-center">
         <div className="itinerarioCard">
-          <h2>{props.itinerary.itineraryName}</h2>      
+          <h2>{props.itinerary.itineraryName}</h2>
           <img
             className="singleCard"
             variant="top"
             src={props.itinerary.userImg}
             alt="."
-          />    
+          />
           <h4>{props.itinerary.userName}</h4>
 
           <div className="div">
             <div className="minidiv">
-           <p onClick={() => handleLike()}>   
-              {liked ? <img className="heartlike" src="../assets/heart.png"></img> : <img className="heartlike" src="../assets/like.png"></img>}
-              
-              </p> <p>{likes}</p>
+              <p onClick={() => handleLike()}>
+                {liked ? (
+                  <img className="heartlike" src="../assets/heart.png"></img>
+                ) : (
+                  <img className="heartlike" src="../assets/like.png"></img>
+                )}
+              </p>{" "}
+              <p>{likes}</p>
             </div>
             <div className="minidiv">
               <div>Duration: {props.itinerary.duration}Hs</div>
@@ -97,8 +108,7 @@ function Itinerary(props) {
               props.activities.map((activity) => {
                 if (activity.itinerary._id === props.itinerary._id) {
                   return (
-               
-                      <div className="activity">
+                    <div className="activity">
                       <div
                         className="activityPic"
                         style={{ backgroundImage: `url("${activity.image}")` }}
@@ -106,21 +116,57 @@ function Itinerary(props) {
                         <h5 className="activityName">{activity.title}</h5>
                       </div>
                     </div>
-                    
                   );
                 }
               })}
           </div>
-            <button
-              onClick={() => {
-                setDisplay(!display);
-                props.getActivities(props.itinerary._id);
-              }}
-              className="viewmore"
-            >
-              {" "}
-              {display ? "View less" : "View more"}
-            </button>
+          <div>
+            <div >
+              {display &&
+                props.comments &&
+                props.comments.map((comment) => {
+                  if (comment.itinerary === props.itinerary._id) {
+                    return (
+                      
+                      <Comments
+                        comment={comment}
+                        itinerary={props.itinerary._id}
+                        user={props.user}
+                      />
+                    );
+                  }
+                })}
+              {display && (
+                <form onSubmit={handleComment}>
+                  <input
+                    ref={comment}
+                    type="textarea"
+                    className="comentar"
+                    placeholder="Leave your message here"
+                  />
+                  <div className="submit">
+                    <input
+                      className="btn-submit"
+                      type="submit"
+                      value="Comment"
+                    />
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
+          <button
+            onClick={() => {
+              setDisplay(!display);
+              props.getActivities(props.itinerary._id);
+              props.getAllComments();
+
+            }}
+            className="viewmore"
+          >
+            {" "}
+            {display ? "View less" : "View more"}
+          </button>
         </div>
       </div>
     </>
@@ -130,13 +176,14 @@ function Itinerary(props) {
 const mapDispatchToProps = {
   likes: itinerariesAction.likes,
   getActivities: activitiesAction.getActivities,
+  getAllComments: itinerariesAction.getAllComments,
+  postComments: itinerariesAction.postComments
 };
 
-// const mapStateToProps = (state) => {
-//   return {
+const mapStateToProps = (state) => {
+  return {
+    comments: state.itinerariesReducer.comments,
+  };
+};
 
-//     activities: state.activitiesReducer.activities
-//   }
-// }
-
-export default connect(null, mapDispatchToProps)(Itinerary);
+export default connect(mapStateToProps, mapDispatchToProps)(Itinerary);

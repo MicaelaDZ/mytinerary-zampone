@@ -20,12 +20,10 @@ function CardsItineraries(props) {
   const [likes, setlikes] = useState("")
 
   useEffect(() => {
-    //asi no se hace el loop infinito. compDidmount
-    !props.cities[0] && props.getCities() //si no existen cities, traelas
-    props.cities[0] && props.findCity(props.cities, params.id) //si existe cities, encontrame una ciudad por id (los paranms)
+    !props.cities[0] && props.getCities() 
+    props.cities[0] && props.findCity(props.cities, params.id) 
     props.getItinerariesByCityId(params.id, false)
-    /* eslint-disable jsx-a11y/alt-text */
-  }, [props.cities]) //c/vez q se atualiza props.cities: se ejecuta useEff
+    }, [props.cities]) 
   
 
   const back = {
@@ -37,7 +35,7 @@ function CardsItineraries(props) {
     "backgroundSize": "cover",
     "zIndex": "-1",
   }
-  console.log(props.isLoading)
+  console.log(props.user)
   return (
     <>
     <div className="fondo-itinerario">

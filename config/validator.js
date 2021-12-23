@@ -26,7 +26,7 @@ const validator = (req, res, next) => {
         country: joi.string().required().messages({
             'string.empty' : "This field is required"           
         }),   
-        google: joi.boolean(),
+        google: joi.boolean()
         
              
     })

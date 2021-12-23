@@ -62,24 +62,31 @@ const itineraryController = {
       res.json({ success: false, error: e, response: null });
     }
   },
-  postComment: async (req, res) => {
-    const { user, itinerary, message } = req.body;
-    try {
-      await new Comment({ user, itinerary, message }).save();
+  getAllComments:async (req, res) => {
+    Comment.find()
+    .populate({ path: "user", select: ["name", "email", "photo"]})
+    .then(response => {res.json({success: true, response: response})})
+    
+},
+postComment: async (req, res) => {
+  const itinerary = req.body.itinerary //asi se escribe en el controlador
+  const { user, message } = req.body;
+  try {
+      await new Comment({itinerary, user, message }).save();
       res.json({
-        success: true,
-        response: "Uploaded comment with message: " + message,
-        error: null,
+          success: true,
+          response: "Uploaded comment with message: " + message,
+          error: null,
       });
-    } catch (e) {
+  } catch (e) {
       res.json({ success: false, error: e, response: null });
       console.error(e);
-    }
-  },
+  }
+},
 editComment: async (req, res) => {
     try {
       //si no tengo new true findone devuelve la lista no editada. true me duvuevle la editada, sin true la pasa y dps la edita
-      let commentEdit = await Comment.findOneAndUpdate({ _id: req.body.id }, { message: req.body.message}, {new:true});
+      let commentEdit = await Comment.findOneAndUpdate({ _id: req.body.comment , user:req.user._id}, {message:req.body.message});
       res.json({
         success: true,
         response:commentEdit
@@ -91,16 +98,16 @@ editComment: async (req, res) => {
   },
   deleteComment: async (req, res) => {
     try {
-      await Comment.findOneAndDelete({ _id: req.body.id });
-      res.json({
-        success: true,
-        response: "Deleted comment with id" + req.body.id,
-      });
+        let comment = await Comment.findOneAndDelete({ _id: req.params.commentId});
+        res.json({
+            success: true,
+            response: comment,
+        });
     } catch (e) {
-      res.json({ success: false, error: e });
-      console.error(e);
+        res.json({ success: false, error: e });
+        console.error(e);
     }
-  },
+}
 
 };
 

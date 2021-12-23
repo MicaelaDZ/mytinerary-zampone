@@ -5,6 +5,7 @@ const activityController = require("../controllers/activityController")
 const likesController = require("../controllers/likesController")
 const validator = require("../config/validator")
 const passport = require('../config/passport')
+const validatorComment = require("../config/validatorComment")
 
 const Router = require("express").Router()
 
@@ -59,9 +60,12 @@ Router.route("/like")
 .put(likesController.like)
 
 Router.route("/comments")
-.get(itineraryController.getComments)
-.post(itineraryController.postComment)
-.put(itineraryController.editComment)
+.get(itineraryController.getAllComments)
+.post(validatorComment,itineraryController.postComment)
+.put(passport.authenticate("jwt", {session: false}), itineraryController.editComment)
 .delete(itineraryController.deleteComment)
+
+Router.route('/comments/:commentId')
+.delete(passport.authenticate("jwt", {session: false}), itineraryController.deleteComment)
 
 module.exports = Router
