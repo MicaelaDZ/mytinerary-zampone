@@ -12,6 +12,6 @@ app.use(express.json())
 app.use(passport.initialize())
 app.use("/api", Router)
 
-app.listen(process.env.PORT || 4000, process.env.HOST || '0.0.0.0', ()=>{
+app.listen(process.env.PORT || 4000, '0.0.0.0', ()=>{
     console.log("Inicializando...")
 })
