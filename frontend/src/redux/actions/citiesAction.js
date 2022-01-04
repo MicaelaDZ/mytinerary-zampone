@@ -4,7 +4,7 @@ import axios from 'axios';
 const citiesAction = {
     getCities: () => {
         return async (dispatch, getState) => {
-          let response = await axios.get("http://localhost:4000/api/cities")
+          let response = await axios.get("http://mytinerary-zampone.herokuapp.com/api/cities")
           dispatch({
             type: "GET_ALL_CITIES",
             payload: response.data.response,
