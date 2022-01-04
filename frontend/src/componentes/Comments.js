@@ -5,9 +5,9 @@ import {BsFillTrashFill, BsFillPencilFill} from "react-icons/bs"
 import swal from 'sweetalert'
 
 function Comments(props) {
-    const editComment = useRef()
+ 
     const [edit, setEdit] = useState(false)
-    const [newComment, setNewComment] = useState("")
+    const [newComment, setNewComment] = useState("") //cambia el estado y se settea el nuevocoment.
 
     function deleteComment() {
       swal({
@@ -30,14 +30,16 @@ function Comments(props) {
       })
     }
 
+    const editComment = useRef()
+
     function handleEditComment(e) {
         e.preventDefault()
-        setEdit(!edit)
+        setEdit(!edit) //e onClick se settea en true (!false) y se llaman a las props - editCom necesita un comentario&msg como parametros.
         props.editComments(
-            props.comment._id,
+            props.comment._id, //id del comentario y el msj cambiado
             editComment.current.value
         )
-        editComment.current.value = ""
+        
     }
 
   
@@ -70,7 +72,7 @@ function Comments(props) {
                           type="text"
                           name="editor"
                           ref={editComment}
-                          defaultValue={props.comment.comment}
+                          defaultValue={props.comment.message}
                           onChange={() => setNewComment(editComment.current.value)}
                         />
                       
@@ -98,4 +100,5 @@ const mapDispatchToProps = {
     editComments: itinerariesAction.editComments,
     deleteComment: itinerariesAction.deleteComment,
 }
+
 export default connect(null, mapDispatchToProps)(Comments)

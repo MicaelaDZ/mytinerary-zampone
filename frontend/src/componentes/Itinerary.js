@@ -18,10 +18,7 @@ function Itinerary(props) {
     !props.activities[0] && props.getActivities(props.itinerary._id);
   }, [props.activities]);
 
-  const [liked, setliked] = useState("");
-  const [likes, setlikes] = useState("");
-
-  const comment = useRef();
+   const comment = useRef();
 
   function handleComment(e) {
     e.preventDefault();
@@ -33,25 +30,23 @@ function Itinerary(props) {
     comment.current.value = "";
   }
 
-  useEffect(() => {
-    !props.user && setliked(false);
-    if (props.user) {
-      setliked(props.itinerary.likes.some((id) => id === props.user._id));
-    }
-  }, [props.user]);
+  const [liked, setliked] = useState("");//si esta likeado o no
+  const [likes, setlikes] = useState(""); 
 
   if (props.itinerary && liked === "" && likes === "") {
     if (props.user) {
-      setliked(props.itinerary.likes.some((id) => id === props.user._id));
+      setliked(props.itinerary.likes.some((id) => id === props.user._id)); // se establece el corazon si hay un like con id de user y de itinerary que coincidan y entonces se suman likes
+      
     }
     setlikes(props.itinerary.likes.length);
   }
+ 
 
   function handleLike() {
     if (localStorage.getItem("token")) {
-      setliked(!liked);
+       setliked(!liked); // sin esta linea  no seactualiza setliked, el estado del corazon
       liked ? setlikes(likes - 1) : setlikes(likes + 1);
-      props.likes(props.user._id, props.itinerary._id, props.params);
+      props.likes(props.user._id, props.itinerary._id);
     } else {
       toast.warning("Please sign in to like this itinerary", {
         position: toast.POSITION.TOP_CENTER,

@@ -18,33 +18,12 @@ const itinerariesReducer = (state = initialState, action) => {
         ...state,
         isLoading: action.payload,
       };
-    case "LIKE":
-      return {
-        ...state,
-        itineraries: action.payload,
-      };
-    case "GET_ALL_COMMENTS":
+     case "COMMENTS":
       return {
         ...state,
         comments: action.payload,
       };
-     case "POST_COMMENTS":
-      return {
-        ...state,
-        comments: action.payload,
-      };
-    case "EDIT_COMMENTS":
-      return {
-        ...state,
-        comments: action.payload,
-      };
-      case "DELETE_COMMENTS":
-      return {
-        ...state,
-        comments: action.payload,
-      };
-
-    default:
+         default:
       return state;
   }
 };

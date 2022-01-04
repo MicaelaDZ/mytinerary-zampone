@@ -13,7 +13,7 @@ const itinerariesAction = {
       });
     };
   },
-  likes: (userId, itineraryId, city_id) => {
+  likes: (userId, itineraryId) => { //necesita userid + itineraryid si coinciden se hace el pedido a la api y se ejecuta la action
     return async (dispatch, getState) => {
       try {
         if (userId && itineraryId) {
@@ -21,10 +21,7 @@ const itinerariesAction = {
             userId,
             itineraryId,
           });
-          let res = await axios.get(
-            "http://localhost:4000/api/itineraries/" + city_id
-          );
-          dispatch({ type: "LIKE", payload: res.data.response });
+          
         } else {
           toast.warning("You must be logged in to like this itinerary", {
             position: toast.POSITION.TOP_CENTER,
@@ -45,13 +42,13 @@ const itinerariesAction = {
       let response = await axios.get(
         "http://localhost:4000/api/comments/" + itineraryId
       );
-      dispatch({ type: "GET_COMMENTS", payload: response.data.response });
+      dispatch({ type: "COMMENTS", payload: response.data.response });
     };
   },
   getAllComments: () => {
     return async (dispatch, getState) => {
       let response = await axios.get("http://localhost:4000/api/comments");
-      dispatch({ type: "GET_ALL_COMMENTS", payload: response.data.response });
+      dispatch({ type: "COMMENTS", payload: response.data.response });
     };
   },
   postComments: (itinerary, user, message) => {
@@ -63,7 +60,7 @@ const itinerariesAction = {
         message,
       });
       let res = await axios.get("http://localhost:4000/api/comments");
-      dispatch({ type: "POST_COMMENTS", payload: res.data.response });
+      dispatch({ type: "COMMENTS", payload: res.data.response });
     }else{
       toast.warning("You must be logged in to comment", {
         position: toast.POSITION.TOP_CENTER,
@@ -85,7 +82,7 @@ const itinerariesAction = {
         }
       );
       let res = await axios.get("http://localhost:4000/api/comments");
-      dispatch({ type: "EDIT_COMMENTS", payload: res.data.response });
+      dispatch({ type: "COMMENTS", payload: res.data.response });
     };
   },
   deleteComment: (commentId) => {
@@ -97,7 +94,7 @@ const itinerariesAction = {
             },
         })
         let res = await axios.get("http://localhost:4000/api/comments")
-        dispatch({type: "DELETE_COMMENTS", payload: res.data.response })
+        dispatch({type: "COMMENTS", payload: res.data.response })
     }
 },
   

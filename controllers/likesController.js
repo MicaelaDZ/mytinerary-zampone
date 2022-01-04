@@ -3,12 +3,11 @@ const Itinerary = require("../models/Itinerary")
 
 const likesController = {
     like: async (req,res) => {
-        console.log(req.body.userId)
+       
         const id = req.body.itineraryId
-        console.log(req.body.itineraryId)
-        const itinerary = await Itinerary.findOne({_id:id}).lean()
-         const likeExist = itinerary.likes.some((like) => like === req.body.userId ) 
-        console.log(likeExist)
+        const itinerary = await Itinerary.findOne({_id:id}).lean() //hace q las consultas sean mas rapidas
+        const likeExist = itinerary.likes.some((like) => like === req.body.userId ) 
+    
 
         if(!likeExist){
             Itinerary.findOneAndUpdate(
