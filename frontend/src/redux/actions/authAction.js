@@ -6,7 +6,7 @@ const authAction = {
     signupUser: (newUser) => {
         return async (dispatch, getState) =>{
             try {
-                const user = await axios.post("http://mytinerary-zampone.herokuapp.com/api/auth/signup",  {
+                const user = await axios.post("https://mytinerary-zampone.herokuapp.com/api/auth/signup",  {
                     ...newUser})
                 
                 if(user.data.success && !user.data.error){
@@ -28,7 +28,7 @@ const authAction = {
     signIn: (email,password) => {
         return async(dispatch,getState) => {
             try{                
-                const user = await axios.post("http://mytinerary-zampone.herokuapp.com/api/auth/signin", {email,password})
+                const user = await axios.post("https://mytinerary-zampone.herokuapp.com/api/auth/signin", {email,password})
                 console.log(user)
                 if(user.data.success && !user.data.error){
                     localStorage.setItem("token", user.data.response.token)
@@ -49,7 +49,7 @@ const authAction = {
         return async(dispatch, getState)=>{
             try{
                 const token = localStorage.getItem("token")
-                const user = await axios.get("http://mytinerary-zampone.herokuapp.com/api/auth",{
+                const user = await axios.get("https://mytinerary-zampone.herokuapp.com/api/auth",{
                 headers:{
                     Authorization: `Bearer ${token}`}
             })

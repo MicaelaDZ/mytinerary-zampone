@@ -17,7 +17,7 @@ const itinerariesAction = {
     return async (dispatch, getState) => {
       try {
         if (userId && itineraryId) {
-          let response = await axios.put("http://mytinerary-zampone.herokuapp.com/api/like", {
+          let response = await axios.put("https://mytinerary-zampone.herokuapp.com/api/like", {
             userId,
             itineraryId,
           });
@@ -40,26 +40,26 @@ const itinerariesAction = {
   getComments: (itineraryId) => {
     return async (dispatch, getState) => {
       let response = await axios.get(
-        "http://mytinerary-zampone.herokuapp.com/api/comments/" + itineraryId
+        "https://mytinerary-zampone.herokuapp.com/api/comments/" + itineraryId
       );
       dispatch({ type: "COMMENTS", payload: response.data.response });
     };
   },
   getAllComments: () => {
     return async (dispatch, getState) => {
-      let response = await axios.get("http://mytinerary-zampone.herokuapp.com/api/comments");
+      let response = await axios.get("https://mytinerary-zampone.herokuapp.com/api/comments");
       dispatch({ type: "COMMENTS", payload: response.data.response });
     };
   },
   postComments: (itinerary, user, message) => {
     return async (dispatch, getState) => {
       if(itinerary && user){
-      let response = await axios.post("http://mytinerary-zampone.herokuapp.com/api/comments", {
+      let response = await axios.post("https://mytinerary-zampone.herokuapp.com/api/comments", {
         itinerary,
         user,
         message,
       });
-      let res = await axios.get("http://mytinerary-zampone.herokuapp.com/api/comments");
+      let res = await axios.get("https://mytinerary-zampone.herokuapp.com/api/comments");
       dispatch({ type: "COMMENTS", payload: res.data.response });
     }else{
       toast.warning("You must be logged in to comment", {
@@ -73,7 +73,7 @@ const itinerariesAction = {
     return async (dispatch, getState) => {
       const token = localStorage.getItem("token");
       let response = await axios.put(
-        "http://mytinerary-zampone.herokuapp.com/api/comments",
+        "https://mytinerary-zampone.herokuapp.com/api/comments",
         { comment, message },
         {
           headers: {
@@ -81,19 +81,19 @@ const itinerariesAction = {
           },
         }
       );
-      let res = await axios.get("http://mytinerary-zampone.herokuapp.com/api/comments");
+      let res = await axios.get("https://mytinerary-zampone.herokuapp.com/api/comments");
       dispatch({ type: "COMMENTS", payload: res.data.response });
     };
   },
   deleteComment: (commentId) => {
     return async(dispatch, getState)=>{
         const token = localStorage.getItem("token")
-        await axios.delete("http://mytinerary-zampone.herokuapp.com/api/comments/" + commentId , {
+        await axios.delete("https://mytinerary-zampone.herokuapp.com/api/comments/" + commentId , {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         })
-        let res = await axios.get("http://mytinerary-zampone.herokuapp.com/api/comments")
+        let res = await axios.get("https://mytinerary-zampone.herokuapp.com/api/comments")
         dispatch({type: "COMMENTS", payload: res.data.response })
     }
 },
