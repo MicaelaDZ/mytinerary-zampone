@@ -5,7 +5,7 @@ const itinerariesAction = {
   getItinerariesByCityId: (city_id, loading) => {
     return async (dispatch, getState) => {
       let response = await axios.get(
-        "http://mytinerary-zampone.herokuapp.com/api/itineraries/" + city_id
+        "https://mytinerary-zampone.herokuapp.com/api/itineraries/" + city_id
       );
       dispatch({
         type: "GET_ITINERARY_BY_CITY_ID",
