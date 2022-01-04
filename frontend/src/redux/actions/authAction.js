@@ -6,7 +6,7 @@ const authAction = {
     signupUser: (newUser) => {
         return async (dispatch, getState) =>{
             try {
-                const user = await axios.post("http://mytinerary-zampone.herokuapp.compone.herokuapp.com/api/auth/signup",  {
+                const user = await axios.post("http://mytinerary-zampone.herokuapp.com/api/auth/signup",  {
                     ...newUser})
                 
                 if(user.data.success && !user.data.error){
