@@ -170,7 +170,7 @@ a {
 
 .imgSlider {
   height: 40vh;
-  width: 30vw;
+  /* width: 30vw; */
   padding:0.2rem;
   background-color: var(--fondoClaro);
   
@@ -635,7 +635,7 @@ input {
 
 .tamañoCard {
   object-fit: cover;
-  width: 80%;
+  width: 100%;
   height: 35vh;
 }
 
